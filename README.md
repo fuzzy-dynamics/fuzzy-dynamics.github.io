@@ -1,2 +1,1 @@
-# fuzzy-dynamics.github.io
-Blog for my machine intelligence research
+Hi! Welcome to my blog. This is an extension of [banrovegrie.github.io](https://banrovegrie.github.io).
