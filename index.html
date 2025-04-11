@@ -12,7 +12,6 @@
             max-width: 800px;
             margin: 0 auto;
             padding: 2rem;
-            background-color: #f9f9f9;
         }
         
         header {
@@ -21,32 +20,20 @@
         }
         
         .logo {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: 700;
             letter-spacing: -0.02em;
-            margin-bottom: 0.5rem;
-        }
-        
-        .subtitle {
-            font-size: 1.2rem;
-            font-weight: 400;
             margin-bottom: 1rem;
-            color: #555;
         }
         
         .tagline {
             font-size: 1.1rem;
             color: #666;
             margin-bottom: 2rem;
-            font-style: italic;
         }
         
         section {
             margin-bottom: 3rem;
-            background-color: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
         
         h1 {
@@ -67,33 +54,8 @@
             margin-bottom: 1.5rem;
         }
         
-        .about-me {
-            margin-top: 2rem;
-            border-top: 1px dashed #ddd;
-            padding-top: 1.5rem;
-        }
-        
-        .latest-posts {
-            margin-top: 2rem;
-        }
-        
-        .post-preview {
-            margin-bottom: 1.5rem;
-        }
-        
-        .post-date {
-            font-size: 0.9rem;
-            color: #888;
-        }
-        
-        .post-title {
-            font-weight: 600;
-            margin: 0.3rem 0;
-        }
-        
-        .post-excerpt {
-            margin-top: 0.5rem;
-            color: #555;
+        .centered {
+            text-align: center;
         }
         
         footer {
@@ -105,16 +67,11 @@
         }
         
         .contact {
-            margin-top: 1.5rem;
-            font-style: italic;
+            margin-top: 1rem;
         }
         
         @media (max-width: 600px) {
             body {
-                padding: 1.5rem;
-            }
-            
-            section {
                 padding: 1.5rem;
             }
         }
@@ -123,82 +80,23 @@
 <body>
     <header>
         <div class="logo">Fuzzy Dynamics</div>
-        <div class="subtitle">My thoughts on machine intelligence</div>
-        <div class="tagline">"Between certainty and doubt, intelligence emerges."</div>
+        <div class="tagline">Between certainty and doubt, intelligence emerges.</div>
     </header>
 
     <section>
-        <h2>Welcome to my corner of the internet</h2>
         <p>
-            Hi there! I'm passionate about exploring the fascinating intersection of human cognition and machine learning. This blog is my personal space to share thoughts, research notes, and speculations about where AI might be heading.
+            At Fuzzy Dynamics, we engineer systems that expand what's possible through the synergy of human agency and machine intelligence. We explore the open-ended nature of true machine intelligence: autonomous interaction with complex environments driven by principles of compression progress and pursuit of interestingness rather than passive information processing.
         </p>
-        
         <p>
-            I'm particularly interested in moving beyond pattern recognition toward genuine abstraction and reasoning. Through my writing, I explore how intelligence seems to require both the fluidity to synthesize new approaches and the ability to maintain domain-independent representations.
+            We are working towards building foundational models that simultaneously learn and reason. We're interested in moving beyond pattern recognition toward genuine abstraction and reasoning, exploring how intelligence requires both the fluidity to synthesize new approaches and the ability to maintain domain-independent representations.
         </p>
-        
-        <div class="latest-posts">
-            <h2>Recent Musings</h2>
-            
-            <div class="post-preview">
-                <div class="post-date">March 28, 2025</div>
-                <div class="post-title">Open-ended Learning: Beyond Goal-Directed AI</div>
-                <div class="post-excerpt">
-                    <p>The paradigm of goal-directed optimization has dominated AI research for decades, but I've been contemplating whether this framework fundamentally limits the kind of intelligence we can create. Human cognition rarely optimizes for singular, well-defined objectives—rather, it engages in a perpetual dance of curiosity and compression, constantly reorganizing its internal models to accommodate novel experiences.</p>
-                    
-                    <p>Jürgen Schmidhuber's formal theory of creativity and curiosity offers an intriguing alternative: systems that seek to maximize "compression progress" rather than external rewards. Such systems essentially find patterns that allow them to better predict and understand their environments. This process creates a natural curriculum, as the agent continually seeks phenomena at the edge of its current understanding—not too familiar, not too chaotic.</p>
-                    
-                    <p>What fascinates me is how this approach mirrors the intrinsic motivation observed in human development. Children don't explore their environments to maximize some utility function; they're drawn to the novel, the surprising, the pattern-breaking. This inherent drive toward "interestingness" may be what enables the open-ended nature of human intelligence.</p>
-                    
-                    <p>If we're to move beyond the current limitations of AI systems—their brittleness outside narrow domains, their lack of common sense—perhaps we need to embrace this open-endedness. A truly intelligent system might not be one that excels at optimizing specific metrics, but one that continually reorganizes its understanding, forever dancing at the boundary between the known and unknown, the certain and the doubtful.</p>
-                </div>
-            </div>
-            
-            <div class="post-preview">
-                <div class="post-date">March 15, 2025</div>
-                <div class="post-title">The Interestingness Function: What Makes Some Patterns Matter?</div>
-                <div class="post-excerpt">
-                    <p>The notion of "interestingness" presents a profound philosophical puzzle at the heart of intelligence. When we examine the raw sensory data streaming into our consciousness, we find an effectively infinite sea of potential patterns—yet only certain configurations capture our attention. What makes some regularities worthy of notice while others fade into the background of our perception?</p>
-                    
-                    <p>I've been wrestling with this question through the lens of information theory and phenomenology. From an information-theoretic perspective, patterns that offer maximum compression efficiency should be the most valuable—they allow us to encode more of the world with less cognitive resource. Yet this fails to account for the subjective, contextual nature of what we find interesting. The pattern of cracks on my ceiling might contain as much algorithmic information as a page of profound philosophy, yet one captivates while the other barely registers.</p>
-                    
-                    <p>Merleau-Ponty's phenomenology offers an intriguing complementary perspective: perhaps interestingness emerges not from properties inherent to patterns themselves, but from how they relate to our embodied being-in-the-world. Patterns matter when they afford possibilities for action, when they connect to our projects and concerns, when they reconfigure our understanding of ourselves as agents navigating a complex environment.</p>
-                    
-                    <p>For machine intelligence, this suggests a profound limitation in current approaches. A truly general intelligence might require something beyond pattern recognition capabilities—it may need a form of embodied concern, a stake in the world that makes some patterns matter more than others. This isn't merely about programming in "values" or "preferences," but about creating systems with a phenomenological relationship to their environment that generates an authentic interestingness function. Such systems would find patterns meaningful not because they've been programmed to value certain objectives, but because these patterns genuinely reconfigure their possibilities for being.</p>
-                </div>
-            </div>
-            
-            <div class="post-preview">
-                <div class="post-date">February 27, 2025</div>
-                <div class="post-title">Reasoning and Learning: Two Sides of the Same Coin?</div>
-                <div class="post-excerpt">
-                    <p>Western intellectual tradition has long maintained a dichotomy between reasoning and learning—deduction versus induction, a priori versus a posteriori knowledge, rationalism versus empiricism. This division persists in AI research, where symbolic reasoning systems and statistical learning approaches have developed as largely separate paradigms. But I've become increasingly convinced that this dichotomy fundamentally mischaracterizes the nature of intelligence.</p>
-                    
-                    <p>Consider how we actually engage with novel problems. We don't merely apply formal logical operations to static symbolic representations, nor do we simply recognize patterns from past experience. Instead, we engage in a fluid process of moving between levels of abstraction, reframing problems, drawing analogies across domains, and synthesizing new approaches. Our conceptual representations aren't fixed symbols, but dynamic, context-sensitive constructs that continuously evolve through experience.</p>
-                    
-                    <p>Douglas Hofstadter's work on fluid analogies illuminates this beautifully—showing how analogical thinking blurs the boundary between reasoning and learning. When we map structural patterns from one domain to another, are we reasoning from first principles or learning from experience? The question itself presupposes a false dichotomy. Perhaps reasoning is simply a higher-order form of pattern recognition, operating on more abstract representations extracted from lower-level learning processes.</p>
-                    
-                    <p>This perspective has profound implications for AI architecture. Rather than pursuing the integration of separate reasoning and learning modules, we might be better served by developing unified systems where reasoning emerges naturally from hierarchical learning processes. The future of intelligence might not lie in building systems that either learn or reason, but in creating architectures that continuously extract increasingly abstract patterns from experience, building representations that simultaneously encode both specific experiences and general principles. In such systems, reasoning and learning wouldn't be distinct operations but different perspectives on the same underlying cognitive dynamics—just as they seem to be in human thought.</p>
-                </div>
-            </div>
-        </div>
-        
-        <div class="about-me">
-            <h2>About the Author</h2>
-            <p>
-                I'm just someone fascinated by machine intelligence and its implications. Broadly, I study literature, logic and engineering. I am also interested in comedy, cinema, football and a bucket of other things that keep shifting here and there. This blog is my personal project - a place to organize my thoughts and connect with others who share similar interests.
-            </p>
-            <p>
-                Also check out my other blog: <a href="https://banrovegrie.github.io" target="_blank">banrovegrie.github.io</a> where I explore related topics through a different lens.
-            </p>
-        </div>
+        <p>
+            Email: <a href="mailto:team@fuzzydynamics.org">team@fuzzydynamics.org</a>
+        </p>
     </section>
 
     <footer>
-        <p>© 2025 Fuzzy Dynamics Blog. All content represents my personal views only.</p>
-        <div class="contact">
-            Thanks for reading! New posts every couple of weeks.
-        </div>
+        <p>© 2025 Fuzzy Dynamics. All rights reserved.</p>
     </footer>
 </body>
 </html>
