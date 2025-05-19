@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Image Optimization Tool</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+    .container { display: flex; gap: 20px; margin-bottom: 20px; }
+    canvas { border: 1px solid #ddd; }
+    button { padding: 10px 15px; background: #0066ff; color: white; border: none; border-radius: 4px; cursor: pointer; }
+    button:hover { background: #0055dd; }
+  </style>
+</head>
+<body>
+  <h1>Image Optimizer for Fuzzy Dynamics</h1>
+  <p>This tool will create an optimized version of your logo in WebP format.</p>
+  
+  <div class="container">
+    <div>
+      <h3>Original Image</h3>
+      <img id="original" src="../logo.jpeg" alt="Original Logo" style="max-width: 100%;">
+      <p>Size: <span id="originalSize">195KB</span></p>
+    </div>
+    <div>
+      <h3>Optimized Preview</h3>
+      <canvas id="canvas" width="100" height="100"></canvas>
+      <p>Target size: 100px width</p>
+    </div>
+  </div>
+  
+  <button id="optimize">Create Optimized WebP Image</button>
+  <a id="download" style="display: none; margin-left: 10px;" download="logo-optimized.webp">Download Optimized Image</a>
+  
+  <div id="result" style="margin-top: 20px;"></div>
+
+  <script>
+    // Load the original image
+    const img = document.getElementById('original');
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    
+    img.onload = function() {
+      // Draw the image on the canvas at the target size
+      ctx.drawImage(img, 0, 0, 100, 100);
+    };
+    
+    document.getElementById('optimize').addEventListener('click', function() {
+      // Create optimized WebP image with quality 0.8
+      const dataUrl = canvas.toDataURL('image/webp', 0.8);
+      
+      // Show download link
+      const downloadLink = document.getElementById('download');
+      downloadLink.href = dataUrl;
+      downloadLink.style.display = 'inline-block';
+      
+      // Add HTML code example
+      document.getElementById('result').innerHTML = `
+        <h3>Implementation Code</h3>
+        <pre style="background: #f5f5f5; padding: 10px; overflow: auto; border-radius: 4px;">
+&lt;img src="images/logo-optimized.webp" alt="FYDY Inc." 
+     width="100" height="100"
+     loading="eager" decoding="async"
+     style="width: 100px; height: auto; object-fit: contain;"&gt;
+
+&lt;!-- Add fallback for browsers that don't support WebP --&gt;
+&lt;picture&gt;
+  &lt;source srcset="images/logo-optimized.webp" type="image/webp"&gt;
+  &lt;img src="logo.jpeg" alt="FYDY Inc." 
+       width="100" height="100"
+       loading="eager" decoding="async"
+       style="width: 100px; height: auto; object-fit: contain;"&gt;
+&lt;/picture&gt;
+        </pre>
+        <p>The optimized WebP image will be significantly smaller (likely ~10-20KB instead of 195KB).</p>
+      `;
+    });
+  </script>
+</body>
+</html>
