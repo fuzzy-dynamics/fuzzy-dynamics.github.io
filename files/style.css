@@ -21,6 +21,13 @@
   display: none !important;
 }
 
+
+/* Hide the site title text but keep the logo */
+.md-header__title .md-header__ellipsis {
+  display: none !important;
+}
+
+
 /* Hide the entire navigation section */
 .md-nav {
   display: none !important;
