@@ -1,0 +1,27 @@
+/* Make header non-sticky */
+.md-header {
+  position: static !important;
+  box-shadow: none !important;
+  border-bottom: none !important;
+  margin-top: 0.5rem !important;
+}
+
+/* Remove any additional shadow effects */
+.md-header--shadow {
+  box-shadow: none !important;
+}
+
+/* Remove the border from the header */
+.md-header--border {
+  border-bottom: none !important;
+}
+
+/* Hide the footer completely */
+.md-footer {
+  display: none !important;
+}
+
+/* Hide the entire navigation section */
+.md-nav {
+  display: none !important;
+}
