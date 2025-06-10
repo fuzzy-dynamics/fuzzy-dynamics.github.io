@@ -1,9 +1,8 @@
 /* Make header non-sticky */
 .md-header {
-  position: static !important;
+  position: fixed !important;
   box-shadow: none !important;
   border-bottom: none !important;
-  margin-top: 0.5rem !important;
 }
 
 /* Remove any additional shadow effects */
@@ -21,14 +20,27 @@
   display: none !important;
 }
 
-
 /* Hide the site title text but keep the logo */
 .md-header__title .md-header__ellipsis {
   display: none !important;
 }
 
+/* Hide scrollbars for left navigation sidebar */
+.md-sidebar--primary .md-sidebar__scrollwrap::-webkit-scrollbar {
+  display: none;
+}
 
-/* Hide the entire navigation section */
-.md-nav {
-  display: none !important;
+.md-sidebar--primary .md-sidebar__scrollwrap {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+/* Hide scrollbars for table of contents (right sidebar) */
+.md-sidebar--secondary .md-sidebar__scrollwrap::-webkit-scrollbar {
+  display: none;
+}
+
+.md-sidebar--secondary .md-sidebar__scrollwrap {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
 }
