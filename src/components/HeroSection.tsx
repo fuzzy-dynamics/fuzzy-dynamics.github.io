@@ -101,9 +101,9 @@ export const HeroSection = () => {
       {/* Main Hero Content */}
       <div className="flex-1 md:flex-1 flex items-center justify-center">
         <div className="container mx-auto px-4 sm:px-6 py-4 sm:py-6 md:py-8">
-          <div className="md:grid md:grid-cols-2 md:gap-12 lg:gap-16 xl:gap-20 md:items-center max-w-7xl mx-auto">
+          <div className="md:grid md:grid-cols-2 md:gap-12 lg:gap-16 xl:gap-20 max-w-7xl mx-auto">
             {/* Text Content */}
-            <div className="text-center md:text-left mb-2 sm:mb-4 md:mb-0 md:pl-12 lg:pl-20 xl:pl-24">
+            <div className="text-center md:text-left mb-2 sm:mb-4 md:mb-0 md:pl-12 lg:pl-20 xl:pl-24 md:flex md:flex-col md:justify-center md:h-[28rem] xl:h-[32rem]">
               <div className="tech-mono mb-3 sm:mb-4 text-sm sm:text-sm">
                 THEATRE / HUMAN-AI COLLABORATION
               </div>
@@ -136,7 +136,7 @@ export const HeroSection = () => {
             </div>
 
             {/* SVG Drawing - Only visible on larger screens */}
-            <div className="hidden md:flex justify-start items-center md:pr-4 lg:pr-6 xl:pr-8 2xl:pr-12 md:h-[28rem] xl:h-[32rem]">
+            <div className="hidden md:flex justify-start items-center md:pr-4 lg:pr-6 xl:pr-8 2xl:pr-12">
               <div className="w-full max-w-md xl:max-w-lg 2xl:max-w-lg md:ml-0 lg:ml-0 xl:ml-8 2xl:ml-12 h-full">
                 <img 
                   src={isDark ? "/drawing-dark.svg" : "/drawing.svg"} 
