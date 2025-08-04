@@ -137,11 +137,11 @@ export const HeroSection = () => {
 
             {/* SVG Drawing - Only visible on larger screens */}
             <div className="hidden md:flex justify-start items-center md:pr-4 lg:pr-6 xl:pr-8 2xl:pr-12">
-              <div className="w-full max-w-md xl:max-w-lg 2xl:max-w-lg md:ml-0 lg:ml-0 xl:ml-8 2xl:ml-12">
+              <div className="w-full max-w-md xl:max-w-lg 2xl:max-w-lg md:ml-0 lg:ml-0 xl:ml-8 2xl:ml-12 md:h-[28rem] xl:h-[32rem]">
                 <img 
                   src={isDark ? "/drawing-dark.svg" : "/drawing.svg"} 
                   alt="Abstract artistic drawing" 
-                  className="w-full h-auto opacity-90 hover:opacity-100 transition-opacity duration-500 drop-shadow-lg"
+                  className="w-full h-full object-contain opacity-90 hover:opacity-100 transition-opacity duration-500 drop-shadow-lg"
                 />
               </div>
             </div>
