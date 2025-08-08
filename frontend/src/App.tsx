@@ -10,6 +10,7 @@ import BlogPost from "./pages/BlogPost";
 import Pricing from "./pages/Pricing";
 import Enterprise from "./pages/Enterprise";
 import Research from "./pages/Research";
+import Privacy from "./pages/Privacy";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -20,7 +21,7 @@ const App = () => (
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        <BrowserRouter basename="/">
+        <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/blog" element={<Blog />} />
@@ -28,6 +29,7 @@ const App = () => (
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/enterprise" element={<Enterprise />} />
             <Route path="/research" element={<Research />} />
+            <Route path="/privacy" element={<Privacy />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

@@ -36,10 +36,10 @@ export const FooterSection = () => {
                 Privacy and Security
                 <ExternalLink size={14} />
               </a>
-              <a href="/terms" className="text-sm text-muted-foreground hover:text-foreground hover:underline inline-flex items-center gap-1">
+              {/* <a href="/terms" className="text-sm text-muted-foreground hover:text-foreground hover:underline inline-flex items-center gap-1">
                 Terms of Service
                 <ExternalLink size={14} />
-              </a>
+              </a> */}
             </div>
           </div>
 

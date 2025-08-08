@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { FooterSection } from '@/components/FooterSection';
 import { TopBar } from '@/components/TopBar';
 import { blogPosts, BlogPost as BlogPostType } from '@/data/blogs';
+import ReactMarkdown from 'react-markdown';
 
 const BlogPost = () => {
   const { id } = useParams<{ id: string }>();
@@ -88,9 +89,38 @@ const BlogPost = () => {
                   })}
                 </div>
               </div>
-              
-              {/* Back Button - styled like Join Early Access */}
-              <div className="flex flex-col gap-3 sm:gap-4 justify-start items-start mt-6">
+            </div>
+
+            {/* Blog Content - Constrained Width */}
+            <article className="max-w-3xl mx-auto">
+              {loading ? (
+                <div className="flex items-center justify-center py-16">
+                  <div className="text-muted-foreground">Loading...</div>
+                </div>
+              ) : (
+                <div className="space-y-8">
+                  <ReactMarkdown 
+                    components={{
+                      h1: ({children}) => <h1 className="text-3xl font-bold mb-6 text-foreground">{children}</h1>,
+                      h2: ({children}) => <h2 className="text-2xl font-semibold mb-4 text-foreground mt-8">{children}</h2>,
+                      h3: ({children}) => <h3 className="text-lg font-medium mb-3 text-foreground mt-6">{children}</h3>,
+                      p: ({children}) => <p className="text-lg text-foreground leading-relaxed mb-4">{children}</p>,
+                      ul: ({children}) => <ul className="list-square list-outside pl-6 space-y-2 mb-4 ml-4 marker:text-primary">{children}</ul>,
+                      li: ({children}) => <li className="text-lg text-foreground leading-relaxed">{children}</li>,
+                      strong: ({children}) => <strong className="font-semibold text-foreground">{children}</strong>,
+                      code: ({children}) => <code className="bg-muted px-2 py-1 rounded text-sm font-mono">{children}</code>,
+                      a: ({href, children}) => <a href={href} className="text-primary hover:underline">{children}</a>,
+                    }}
+                  >
+                    {blogContent || 'Content will be added soon...'}
+                  </ReactMarkdown>
+                </div>
+              )}
+            </article>
+
+            {/* Back Button - styled like Join Early Access */}
+            <div className="max-w-3xl mx-auto mt-12">
+              <div className="flex flex-col gap-3 sm:gap-4 justify-start items-start">
                 <Link 
                   to="/blog" 
                   className="group inline-flex items-center gap-2 text-lg sm:text-xl font-semibold text-foreground hover:text-primary transition-colors duration-300 cursor-pointer bg-transparent border-none p-0"
@@ -102,19 +132,6 @@ const BlogPost = () => {
                 </Link>
               </div>
             </div>
-
-            {/* Blog Content - Constrained Width */}
-            <article className="max-w-3xl mx-auto">
-              {loading ? (
-                <div className="flex items-center justify-center py-16">
-                  <div className="text-muted-foreground">Loading...</div>
-                </div>
-              ) : (
-                <div className="whitespace-pre-wrap leading-relaxed text-foreground text-lg">
-                  {blogContent || 'Content will be added soon...'}
-                </div>
-              )}
-            </article>
           </div>
         </div>
       </div>
