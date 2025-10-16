@@ -50,8 +50,8 @@ const companies: CompanyLogo[] = [
 
 export const HeroSection = () => {
   const { isDark } = useTheme();
-  const fullText = 'Explore, plan, build, \nreview.';
-  const startText = 'Explore';
+  const fullText = 'With evolving persistent memory \nand context that doesn\'t rot.';
+  const startText = 'With';
   const [displayedText, setDisplayedText] = useState(startText);
   const [isTypingComplete, setIsTypingComplete] = useState(false);
 
