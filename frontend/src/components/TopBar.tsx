@@ -79,10 +79,9 @@ export const TopBar = () => {
           
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-6">
-            <Link to="/blog" className="nav-link font-sans text-base" onClick={handleNavigation}>Blog</Link>
-            <Link to="/pricing" className="nav-link font-sans text-base" onClick={handleNavigation}>Pricing</Link>
-            <Link to="/enterprise" className="nav-link font-sans text-base" onClick={handleNavigation}>Enterprise</Link>
-            <button 
+            <Link to="/research" className="nav-link font-sans text-base" onClick={handleNavigation}>Research</Link>
+            <Link to="/privacy" className="nav-link font-sans text-base" onClick={handleNavigation}>Privacy Policy</Link>
+            <button
               className="nav-mono font-sans text-base px-3 py-2 rounded-md transition-colors duration-200 bg-[hsl(var(--muted-hover))] hover:text-foreground"
               onClick={handleJoinAccess}
             >
@@ -104,28 +103,21 @@ export const TopBar = () => {
         {isMenuOpen && isMobile && (
           <div className="md:hidden mt-4 pb-4 border-t border-border">
             <div className="flex flex-col space-y-2 pt-4">
-              <Link 
-                to="/blog" 
+              <Link
+                to="/research"
                 className="nav-link font-sans text-base block py-2"
                 onClick={handleNavigation}
               >
-                Blog
+                Research
               </Link>
-              <Link 
-                to="/pricing" 
+              <Link
+                to="/privacy"
                 className="nav-link font-sans text-base block py-2"
                 onClick={handleNavigation}
               >
-                Pricing
+                Privacy Policy
               </Link>
-              <Link 
-                to="/enterprise" 
-                className="nav-link font-sans text-base block py-2"
-                onClick={handleNavigation}
-              >
-                Enterprise
-              </Link>
-              <button 
+              <button
                 className="nav-mono font-sans text-base px-3 py-2 rounded-md transition-colors duration-200 bg-[hsl(var(--muted-hover))] hover:text-foreground text-left block"
                 onClick={handleJoinAccess}
               >

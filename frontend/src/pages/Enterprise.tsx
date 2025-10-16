@@ -1,134 +1,83 @@
 import { FooterSection } from '@/components/FooterSection';
 import { TopBar } from '@/components/TopBar';
-import { useNavigate } from 'react-router-dom';
-import { useTheme } from '@/contexts/ThemeContext';
-import { Search, FileText, Code, Eye, Zap, Shield, Users, Settings, Brain, Network, Workflow } from 'lucide-react';
-
-interface CompanyLogo {
-  name: string;
-  logo: string;
-  darkLogo?: string;
-  alt: string;
-  url: string;
-  className?: string;
-}
-
-// Company logos for trust section
-const companies: CompanyLogo[] = [
-  {
-    name: "Google",
-    logo: "/logos/google-logo.svg",
-    alt: "Google logo",
-    url: "https://google.com"
-  },
-  {
-    name: "Anthropic",
-    logo: "/logos/anthropic-logo.svg",
-    darkLogo: "/logos/anthropic-logo-dark.svg",
-    alt: "Anthropic logo",
-    url: "https://anthropic.com",
-    className: "h-6 sm:h-8 md:h-10"
-  },
-  {
-    name: "Salesforce",
-    logo: "/logos/salesforce-logo.svg",
-    alt: "Salesforce logo",
-    url: "https://salesforce.com"
-  },
-  {
-    name: "Microsoft", 
-    logo: "/logos/microsoft-logo.svg",
-    alt: "Microsoft logo",
-    url: "https://microsoft.com"
-  },
-  {
-    name: "Uber",
-    logo: "/logos/uber-logo.svg",
-    darkLogo: "/logos/uber-logo-dark.svg",
-    alt: "Uber logo",
-    url: "https://uber.com",
-    className: "h-6 sm:h-6 md:h-8"
-  }
-];
+import { Search, FileText, Code, Eye, Zap, Shield, Users, Settings, Network, Workflow } from 'lucide-react';
+import { useState } from 'react';
 
 const Enterprise = () => {
-  const navigate = useNavigate();
-  const { isDark } = useTheme();
-
-  const handleJoinAccess = () => {
-    navigate('/');
-    
-    setTimeout(() => {
-      const preorderSection = document.getElementById('preorder');
-      if (preorderSection) {
-        const topBar = document.querySelector('.fixed.top-0') as HTMLElement;
-        const spacingBuffer = parseFloat(getComputedStyle(document.documentElement).fontSize) || 16;
-        const fallbackHeight = topBar ? topBar.offsetHeight : (spacingBuffer * 5);
-        const headerHeight = topBar ? topBar.offsetHeight + spacingBuffer : fallbackHeight;
-        
-        const elementPosition = preorderSection.getBoundingClientRect().top + window.pageYOffset;
-        const offsetPosition = elementPosition - headerHeight;
-
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth'
-        });
-      }
-    }, 100);
-  };
+  const [activeTab, setActiveTab] = useState(0);
 
   const theatreWorkflow = [
     {
       icon: Search,
-      title: "Research",
-      description: "Persistent knowledge graphs, specialized databases, and discovery artifacts that prevent context rot across your team."
-    },
-    {
-      icon: FileText,
-      title: "Plan", 
-      description: "Structured communication and spec-driven development that scales beyond individual coding to entire project lifecycles."
+      title: "Explore",
+      description: "Continuous discovery and experimentation. Hypothesis generation, knowledge graphs, and active memory that surfaces insights across your work."
     },
     {
       icon: Code,
       title: "Build",
-      description: "Agentic coding with symbolic reasoning and context preservation. IDE++ that understands your entire system, not just files."
+      description: "Spec-driven development with agent hooks. Specifications as source of truth, live review as code evolves, context that never rots."
     },
     {
       icon: Eye,
       title: "Review",
-      description: "Spatial navigation of codebases and changes. Visual understanding of complexity to keep humans meaningfully in the loop."
+      description: "Universal review beyond code. Spatial navigation, graph visualization, DITO version control for reasoning chains and changes."
+    },
+    {
+      icon: FileText,
+      title: "Plan",
+      description: "Orchestration across your stack. Context flows from discovery to tickets, unified view across Linear, GitHub, Jira."
     },
     {
       icon: Zap,
       title: "Automate",
-      description: "Semi-autonomous workflows with human oversight. Reliable automation that preserves human agency and accountability."
+      description: "Semi-autonomous workflows with human oversight. Reliable automation that preserves agency while AI amplifies capability."
     }
   ];
 
-  const enterpriseCapabilities = [
-    {
-      icon: Brain,
-      title: "Beyond Coding Tools",
-      description: "Theatre isn't just an IDE. It's a complete platform for how teams discover, plan, and build complex systems together.",
-      details: "Research studios, knowledge graphs, spec-driven development, and visual collaboration tools."
-    },
-    {
-      icon: Shield,
-      title: "Privacy Mode & Security",
-      description: "Enterprise-grade privacy controls with zero data retention policies. Your research and code stay yours.",
-      details: "SOC 2 roadmap, on-premises options, privacy mode for all features, audit trails."
-    },
+  const keyDifferentiators = [
     {
       icon: Network,
-      title: "Context Preservation",
-      description: "Prevent context rot as your projects scale. Persistent knowledge that grows with your team's understanding.",
-      details: "Semantic indexing, relationship mapping, institutional knowledge retention."
+      title: "Global Context & Continual Learning",
+      description: "Persistent knowledge graphs and active memory that compounds over time. Context never lost when people leave.",
+      bullets: [
+        "Graph RAG and semantic indexing across all work",
+        "Active memory that surfaces connections and insights",
+        "Density over volume: memory that thinks, not stores"
+      ],
+      quote: "Prevent context rot at scale"
     },
     {
-      icon: Users,
-      title: "Human-in-the-Loop",
-      description: "AI amplifies human judgment rather than replacing it. Review and verify everything before complexity drowns your team.",
-      details: "Visual code navigation, transparent AI decisions, human oversight at every automation step."
+      icon: Search,
+      title: "Hypothesis to Execution",
+      description: "From vague intuition to validated findings. Evolutionary hypothesis generation with sandboxed experimentation.",
+      bullets: [
+        "Multi-agent debates and tournament-style ranking",
+        "Computational discovery and verification loops",
+        "Memory that learns from experiments"
+      ],
+      quote: "AI co-scientist, not just search"
+    },
+    {
+      icon: FileText,
+      title: "Spec as Source of Truth",
+      description: "Specifications are testable, composable, executable artifacts. Code is compilation output, not source.",
+      bullets: [
+        "Intent conflict finder, ambiguity highlighters",
+        "Agent hooks for background automations",
+        "Specification Server Protocol for co-thinking"
+      ],
+      quote: "Intent → spec → code → validation"
+    },
+    {
+      icon: Eye,
+      title: "Universal Review with DITO",
+      description: "Spatial visualization and version control for everything: code, research, specs, reasoning chains.",
+      bullets: [
+        "Graph navigation of dependencies and changes",
+        "DITO: version control for memory and compute",
+        "Review beyond code: hypotheses, plans, reasoning"
+      ],
+      quote: "Agency as AI accelerates production"
     }
   ];
 
@@ -151,205 +100,304 @@ const Enterprise = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background flex flex-col">
+    <div className="min-h-screen bg-background flex flex-col relative overflow-hidden">
       <TopBar />
-      
+
+      {/* Background gradient effects */}
+      <div className="fixed inset-0 pointer-events-none opacity-30">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl"></div>
+      </div>
+
       {/* Content Section - flex-grow to push footer down */}
-      <div className="flex-grow">
-        <div className="pt-24 pb-16">
+      <div className="flex-grow relative z-10">
+        <div className="pt-32 pb-24">
           <div className="container mx-auto px-8 sm:px-16">
-            <div className="mb-16">
-              <div className="tech-mono mb-3 sm:mb-4 text-sm sm:text-sm">
-                ENTERPRISE / AI FOR DISCOVERY & ENGINEERING
+            {/* Hero Section */}
+            <div className="mb-32 text-center max-w-6xl mx-auto">
+              <div className="tech-mono mb-6 sm:mb-8 text-sm tracking-wider opacity-80">
+                THEATER FOR ENTERPRISE
               </div>
-              <h1 className="text-4xl font-bold mb-4 text-primary text-left">
-                Enterprise
+              <h1 className="text-5xl sm:text-5xl md:text-5xl font-bold mb-8 text-primary leading-none">
+                Cognition of your<br />Company
               </h1>
-              <p className="text-lg text-muted-foreground text-left max-w-3xl">
-                Theatre transforms the entire development lifecycle, from discovery to production deployment. 
-                We're building the platform for teams who want to preserve human control and prevent context rot while scaling AI assisted development.
+              <p className="text-xl sm:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed mb-12">
+                As AI writes more code and produces more research, the bottleneck shifts. Capture your entire
+                company in a space where humans preserve control while AI amplifies capability.
               </p>
-              
-              <div className="flex flex-col gap-3 sm:gap-4 justify-start items-start mt-6">
-                <button 
-                  className="group inline-flex items-center gap-2 text-lg sm:text-xl font-semibold text-foreground hover:text-primary transition-colors duration-300 cursor-pointer bg-transparent border-none p-0"
-                  onClick={handleJoinAccess}
+
+              <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+                <a
+                  href="mailto:team@fydy.ai"
+                  className="group inline-flex items-center gap-3 text-xl font-semibold text-foreground hover:text-primary transition-all duration-300 cursor-pointer bg-transparent border-none p-0"
                 >
                   <span className="border-b-2 border-foreground group-hover:border-primary transition-colors duration-300">
-                    Join Our Alpha
+                    Talk to Our Team
                   </span>
-                  <span className="text-xl group-hover:translate-x-1 transition-transform duration-300">→</span>
-                </button>
-              </div>
-            </div>
-
-            {/* Trust Section - Alpha Community Members */}
-            <div className="mb-16 py-8">
-              <div className="max-w-7xl mx-auto text-center">
-                <div className="tech-mono mb-4 sm:mb-6 text-sm text-muted-foreground">
-                  <div className="block sm:hidden">
-                    <div>ALPHA COMMUNITY MEMBERS FROM</div>
-                  </div>
-                  <div className="hidden sm:block">
-                    ALPHA COMMUNITY MEMBERS FROM
-                  </div>
-                </div>
-                
-                <div className="flex flex-wrap justify-center items-center gap-8 sm:gap-12 md:gap-16">
-                  {companies.map((company, index) => (
-                    <a 
-                      key={index} 
-                      href={company.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-center hover:scale-105 transition-transform duration-300 cursor-pointer"
-                    >
-                      <img 
-                        src={isDark && company.darkLogo ? company.darkLogo : company.logo}
-                        alt={company.alt}
-                        className={`w-auto object-contain transition-all duration-300 ${
-                          company.className || "h-8 sm:h-10 md:h-12"
-                        }`}
-                        onError={(e) => {
-                          const target = e.target as HTMLImageElement;
-                          target.style.display = 'none';
-                          target.parentElement!.innerHTML = `<span class="text-xl sm:text-2xl font-bold text-muted-foreground/80">${company.name}</span>`;
-                        }}
-                      />
-                    </a>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* Theatre's Complete Workflow */}
-            <div className="mb-16">
-              <h2 className="text-3xl font-bold mb-4 text-foreground text-left">
-                Research → Plan → Build → Review → Automate
-              </h2>
-              <p className="text-lg text-muted-foreground text-left mb-12">
-                Theatre covers the entire development lifecycle, not just coding. Each stage keeps humans in control while AI amplifies capabilities.
-              </p>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-                {theatreWorkflow.map((stage, index) => (
-                  <div key={index} className="bg-card border border-border rounded-lg p-6 hover:shadow-md transition-shadow duration-300">
-                    <div className="flex items-start gap-4">
-                      <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                        <stage.icon className="w-6 h-6 text-primary" />
-                      </div>
-                      <div>
-                        <h3 className="text-lg font-semibold mb-2 text-foreground">{stage.title}</h3>
-                        <p className="text-sm text-muted-foreground">{stage.description}</p>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              <div className="bg-muted/50 rounded-lg p-6 border border-border">
-                <p className="text-sm text-muted-foreground">
-                  <strong>Why this matters:</strong> Most AI coding tools focus only on the "Build" phase. Theatre recognizes that great software emerges from the entire discovery and engineering process—from initial research to ongoing maintenance.
-                </p>
-              </div>
-            </div>
-
-            {/* Enterprise Capabilities */}
-            <div className="mb-16">
-              <h2 className="text-3xl font-bold mb-4 text-foreground text-left">Built for Enterprise Reality</h2>
-              <p className="text-lg text-muted-foreground text-left mb-12">
-                We're designing Theatre from the ground up to address the real challenges of building complex systems at scale.
-              </p>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {enterpriseCapabilities.map((capability, index) => (
-                  <div key={index} className="bg-card border border-border rounded-lg p-6 hover:shadow-md transition-shadow duration-300">
-                    <div className="flex items-start gap-4 mb-4">
-                      <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                        <capability.icon className="w-6 h-6 text-primary" />
-                      </div>
-                      <div>
-                        <h3 className="text-xl font-semibold mb-2 text-foreground">{capability.title}</h3>
-                        <p className="text-muted-foreground mb-3">{capability.description}</p>
-                      </div>
-                    </div>
-                    <div className="text-sm text-muted-foreground bg-muted/50 rounded p-3">
-                      {capability.details}
-                    </div>
-                  </div>
-                ))}
+                  <span className="text-2xl group-hover:translate-x-2 transition-transform duration-300">→</span>
+                </a>
               </div>
             </div>
 
             {/* Real-World Impact */}
-            <div className="mb-16 bg-muted rounded-lg p-8 md:p-12">
-              <h2 className="text-3xl font-bold mb-4 text-foreground text-left">Why Teams Choose Theatre</h2>
-              <p className="text-lg text-muted-foreground mb-8">
-                We're addressing the fundamental challenges that slow down engineering teams as they scale.
-              </p>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="mb-32">
+              <div className="text-center mb-8">
+                <h2 className="text-4xl sm:text-5xl font-bold mb-6 text-foreground">Why Teams Choose Theater</h2>
+                <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+                  Addressing fundamental bottlenecks that slow down engineering teams as they scale.
+                </p>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-3">
                 {realWorldBenefits.map((benefit, index) => (
-                  <div key={index}>
-                    <div className="text-3xl font-bold text-primary mb-2">{benefit.stat}</div>
-                    <div className="font-semibold mb-1">{benefit.label}</div>
-                    <div className="text-sm text-muted-foreground">{benefit.description}</div>
+                  <div key={index} className={`text-center p-12 ${index !== realWorldBenefits.length - 1 ? 'md:border-r border-border' : ''}`}>
+                    <div className="text-5xl sm:text-6xl font-bold text-primary mb-4">{benefit.stat}</div>
+                    <div className="font-bold mb-3 text-foreground text-lg">{benefit.label}</div>
+                    <div className="text-sm text-muted-foreground leading-relaxed">{benefit.description}</div>
                   </div>
                 ))}
               </div>
             </div>
 
+            {/* Key Differentiators */}
+            <div className="mb-32 max-w-6xl mx-auto">
+              <div className="text-center mb-16">
+                <h2 className="text-4xl sm:text-5xl font-bold mb-6 text-foreground">What Makes Theater Different</h2>
+                <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+                  Built for teams addressing the real challenges of discovery and engineering at scale.
+                </p>
+              </div>
+
+              <div className="flex flex-col md:flex-row gap-8">
+                {/* Tab Buttons */}
+                <div className="md:w-1/3 space-y-2 md:pr-8 md:border-r border-border">
+                  {keyDifferentiators.map((differentiator, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setActiveTab(index)}
+                      className={`w-full text-left px-6 py-4 rounded-lg transition-all duration-300 ${
+                        activeTab === index
+                          ? 'text-foreground bg-muted/30'
+                          : 'text-muted-foreground hover:bg-muted/50'
+                      }`}
+                    >
+                      {differentiator.title}
+                    </button>
+                  ))}
+                </div>
+
+                {/* Tab Content */}
+                <div className="md:w-2/3 space-y-4 md:pl-8">
+                  <h3 className="text-3xl font-bold text-foreground">{keyDifferentiators[activeTab].title}</h3>
+                  <div className="text-base font-medium text-primary italic border-l-2 border-primary pl-4 py-1">
+                    "{keyDifferentiators[activeTab].quote}"
+                  </div>
+                  <p className="text-lg text-muted-foreground leading-relaxed">{keyDifferentiators[activeTab].description}</p>
+                  <ul className="space-y-2 ml-6">
+                    {keyDifferentiators[activeTab].bullets.map((bullet, i) => (
+                      <li key={i} className="text-base text-muted-foreground flex items-start gap-3">
+                        <span className="text-primary mt-1">•</span>
+                        <span className="leading-relaxed">{bullet}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            {/* Paradigm Shift Section */}
+            <div className="mb-32">
+              <div className="text-center mb-16">
+                <div className="tech-mono mb-4 text-sm text-muted-foreground tracking-wider">
+                  THE PARADIGM SHIFT
+                </div>
+                <h2 className="text-4xl sm:text-5xl font-bold text-foreground">
+                  Three Fundamental Changes
+                </h2>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div className="group bg-card/50 backdrop-blur border border-border/50 rounded-2xl p-10 hover:shadow-2xl hover:border-primary/50 transition-all duration-500 hover:-translate-y-2">
+                  <div className="w-16 h-16 bg-gradient-to-br from-primary/20 to-primary/5 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
+                    <Search className="w-9 h-9 text-primary" />
+                  </div>
+                  <h3 className="text-2xl font-bold mb-4 text-foreground">Continuous Discovery</h3>
+                  <p className="text-muted-foreground leading-relaxed text-lg">
+                    Theater maintains full context of your space and proactively surfaces relevant insights from your company corpus, citing sources as you work.
+                  </p>
+                </div>
+
+                <div className="group bg-card/50 backdrop-blur border border-border/50 rounded-2xl p-10 hover:shadow-2xl hover:border-primary/50 transition-all duration-500 hover:-translate-y-2">
+                  <div className="w-16 h-16 bg-gradient-to-br from-primary/20 to-primary/5 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
+                    <FileText className="w-9 h-9 text-primary" />
+                  </div>
+                  <h3 className="text-2xl font-bold mb-4 text-foreground">Spec Management</h3>
+                  <p className="text-muted-foreground leading-relaxed text-lg">
+                    Maintain separate projects that sync with each other to power your spec-driven development workflow.
+                  </p>
+                </div>
+
+                <div className="group bg-card/50 backdrop-blur border border-border/50 rounded-2xl p-10 hover:shadow-2xl hover:border-primary/50 transition-all duration-500 hover:-translate-y-2">
+                  <div className="w-16 h-16 bg-gradient-to-br from-primary/20 to-primary/5 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
+                    <Eye className="w-9 h-9 text-primary" />
+                  </div>
+                  <h3 className="text-2xl font-bold mb-4 text-foreground">Universal Review</h3>
+                  <p className="text-muted-foreground leading-relaxed text-lg">
+                    A unique system that helps you review any changes made by your coworkers or their agents, preserving oversight and control as AI accelerates production.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Theater's Complete Workflow */}
+            {/* <div className="mb-32">
+              <div className="text-center mb-16">
+                <h2 className="text-4xl sm:text-5xl font-bold mb-6 text-foreground">
+                  The Complete Platform
+                </h2>
+                <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+                  Explore, Build, Review, Plan, and Automate in one unified flow. Powered by <span className="text-foreground font-semibold">Chord infrastructure</span> for memory and continuity across all modes.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                {theatreWorkflow.map((stage, index) => (
+                  <div key={index} className="group bg-card/50 backdrop-blur border border-border/50 rounded-xl p-8 hover:shadow-xl hover:border-primary/30 transition-all duration-300">
+                    <div className="flex items-start gap-4">
+                      <div className="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-primary/15 to-primary/5 rounded-xl flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+                        <stage.icon className="w-7 h-7 text-primary" />
+                      </div>
+                      <div>
+                        <h3 className="text-lg font-bold mb-3 text-foreground">{stage.title}</h3>
+                        <p className="text-sm text-muted-foreground leading-relaxed">{stage.description}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="bg-gradient-to-r from-muted/80 to-muted/40 rounded-2xl p-8 border border-border/50">
+                <p className="text-muted-foreground text-lg leading-relaxed">
+                  <strong className="text-foreground">Why this matters:</strong> Most tools fragment the workflow. Theater unifies discovery, planning, building, and review with global context that compounds over time.
+                </p>
+              </div>
+            </div> */}
+
+            {/* Enterprise-Grade Infrastructure */}
+            <div className="mb-32">
+              <div className="text-center mb-16">
+                <h2 className="text-4xl sm:text-5xl font-bold mb-6 text-foreground">Enterprise-Grade Infrastructure</h2>
+                <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+                  Security, scale, and integration built from the ground up.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div className="group bg-card/50 backdrop-blur border border-border/50 rounded-xl p-8 hover:shadow-xl hover:border-primary/30 transition-all duration-300">
+                  <div className="w-14 h-14 bg-gradient-to-br from-primary/15 to-primary/5 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <Shield className="w-7 h-7 text-primary" />
+                  </div>
+                  <h3 className="font-bold mb-3 text-foreground text-lg">Security & Privacy</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    Privacy Mode, SOC 2 Type II (in progress), zero data retention with AI providers, regional hosting
+                  </p>
+                </div>
+
+                <div className="group bg-card/50 backdrop-blur border border-border/50 rounded-xl p-8 hover:shadow-xl hover:border-primary/30 transition-all duration-300">
+                  <div className="w-14 h-14 bg-gradient-to-br from-primary/15 to-primary/5 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <Settings className="w-7 h-7 text-primary" />
+                  </div>
+                  <h3 className="font-bold mb-3 text-foreground text-lg">Deployment Options</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    Cloud, VPC, and on-premise installations for maximum data sovereignty and control
+                  </p>
+                </div>
+
+                <div className="group bg-card/50 backdrop-blur border border-border/50 rounded-xl p-8 hover:shadow-xl hover:border-primary/30 transition-all duration-300">
+                  <div className="w-14 h-14 bg-gradient-to-br from-primary/15 to-primary/5 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <Workflow className="w-7 h-7 text-primary" />
+                  </div>
+                  <h3 className="font-bold mb-3 text-foreground text-lg">Deep Integration</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    GitHub, GitLab, Linear, Jira, Notion, Slack. Context flows across your entire stack
+                  </p>
+                </div>
+
+                <div className="group bg-card/50 backdrop-blur border border-border/50 rounded-xl p-8 hover:shadow-xl hover:border-primary/30 transition-all duration-300">
+                  <div className="w-14 h-14 bg-gradient-to-br from-primary/15 to-primary/5 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <Users className="w-7 h-7 text-primary" />
+                  </div>
+                  <h3 className="font-bold mb-3 text-foreground text-lg">Team Controls</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    Privacy enforcement, audit trails, SSO, admin controls for enterprise governance
+                  </p>
+                </div>
+              </div>
+            </div>
+
             {/* What We're Not */}
-            <div className="mb-16 border border-border rounded-lg p-8">
-              <h3 className="text-xl font-semibold mb-4 text-foreground">What Theatre Isn't</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-muted-foreground">
-                <div>
-                  <strong className="text-foreground">Not just another AI code editor.</strong> We're rethinking the entire development workflow, from research to deployment.
+            <div className="mb-20 bg-card/30 backdrop-blur border border-border/50 rounded-2xl p-10 md:p-12">
+              <h3 className="text-3xl font-bold mb-8 text-foreground text-center">What Theater Isn't</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-muted-foreground max-w-5xl mx-auto">
+                <div className="flex gap-3">
+                  <span className="text-primary text-xl flex-shrink-0">•</span>
+                  <div>
+                    <strong className="text-foreground text-lg">Not just another AI code editor.</strong> We're rethinking the entire workflow from discovery to deployment.
+                  </div>
                 </div>
-                <div>
-                  <strong className="text-foreground">Not replacing human judgment.</strong> Theatre amplifies human capabilities while preserving human agency and accountability.
+                <div className="flex gap-3">
+                  <span className="text-primary text-xl flex-shrink-0">•</span>
+                  <div>
+                    <strong className="text-foreground text-lg">Not replacing human judgment.</strong> Theater amplifies capabilities while preserving agency and accountability.
+                  </div>
                 </div>
-                <div>
-                  <strong className="text-foreground">Not a fully-featured enterprise platform yet.</strong> We're in alpha, building with early enterprise teams to get this right.
+                <div className="flex gap-3">
+                  <span className="text-primary text-xl flex-shrink-0">•</span>
+                  <div>
+                    <strong className="text-foreground text-lg">Not a fully-featured enterprise platform yet.</strong> We're in alpha, building with select teams to get this right.
+                  </div>
                 </div>
-                <div>
-                  <strong className="text-foreground">Not overpromising on capabilities.</strong> We're focused on solving real problems, not chasing AI hype.
+                <div className="flex gap-3">
+                  <span className="text-primary text-xl flex-shrink-0">•</span>
+                  <div>
+                    <strong className="text-foreground text-lg">Not overpromising capabilities.</strong> We're solving real problems, not chasing AI hype.
+                  </div>
                 </div>
               </div>
             </div>
 
             {/* CTA Section */}
-            <div className="text-center max-w-3xl mx-auto">
-              <h2 className="text-3xl font-bold mb-4 text-foreground">Ready to Rethink Development?</h2>
-              <p className="text-lg text-muted-foreground mb-8">
-                Join our alpha program and help us build the future of AI-assisted engineering. 
-                We're working closely with select enterprise teams to understand real-world needs.
+            <div className="text-center max-w-5xl mx-auto mb-16">
+              <h2 className="text-5xl sm:text-6xl font-bold mb-8 text-foreground leading-tight">
+                Ready to Rethink<br />Discovery & Engineering?
+              </h2>
+              <p className="text-xl sm:text-2xl text-muted-foreground mb-12 leading-relaxed max-w-4xl mx-auto">
+                We're working closely with select engineering teams in alpha. Let's discuss your needs, deployment requirements, and how Theater fits your workflow.
               </p>
-              
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <button 
-                  className="group inline-flex items-center gap-2 text-lg font-semibold text-foreground hover:text-primary transition-colors duration-300 cursor-pointer bg-transparent border-none p-0"
-                  onClick={handleJoinAccess}
+
+              <div className="flex flex-col sm:flex-row gap-8 justify-center items-center mb-16">
+                <a
+                  href="mailto:team@fydy.ai"
+                  className="group inline-flex items-center gap-3 text-2xl font-bold text-foreground hover:text-primary transition-all duration-300 cursor-pointer bg-transparent border-none p-0"
                 >
                   <span className="border-b-2 border-foreground group-hover:border-primary transition-colors duration-300">
-                    Join Alpha Program
+                    Schedule a Conversation
                   </span>
-                  <span className="text-xl group-hover:translate-x-1 transition-transform duration-300">→</span>
-                </button>
-                
-                <span className="text-muted-foreground hidden sm:block">or</span>
-                
-                <a 
-                  href="mailto:team@fydy.ai" 
-                  className="text-muted-foreground hover:text-foreground transition-colors duration-300"
+                  <span className="text-2xl group-hover:translate-x-2 transition-transform duration-300">→</span>
+                </a>
+
+                <span className="text-muted-foreground hidden sm:block text-xl">or</span>
+
+                <a
+                  href="mailto:team@fydy.ai"
+                  className="text-xl text-muted-foreground hover:text-foreground transition-colors duration-300 font-medium"
                 >
                   team@fydy.ai
                 </a>
               </div>
 
-              <div className="mt-8 p-4 bg-muted/50 rounded-lg">
-                <p className="text-sm text-muted-foreground">
-                  <strong>Alpha Access:</strong> We're currently working with a small number of enterprise teams. 
-                  Join our waitlist to be notified when we expand access.
+              <div className="p-8 bg-gradient-to-r from-muted/80 to-muted/40 rounded-2xl border border-border/50">
+                <p className="text-muted-foreground leading-relaxed text-lg">
+                  <strong className="text-foreground">Alpha Program:</strong> We're building Theater with early enterprise partners who understand where discovery and engineering are headed. Current focus areas include ML research teams, platform engineering, and organizations shipping AI-assisted code to production.
                 </p>
               </div>
             </div>

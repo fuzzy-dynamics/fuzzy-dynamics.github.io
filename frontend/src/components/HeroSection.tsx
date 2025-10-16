@@ -50,8 +50,8 @@ const companies: CompanyLogo[] = [
 
 export const HeroSection = () => {
   const { isDark } = useTheme();
-  const fullText = 'Research, build, review,\nautomate.';
-  const startText = 'Research';
+  const fullText = 'Explore, plan, build, \nreview.';
+  const startText = 'Explore';
   const [displayedText, setDisplayedText] = useState(startText);
   const [isTypingComplete, setIsTypingComplete] = useState(false);
 
@@ -109,7 +109,7 @@ export const HeroSection = () => {
               </div>
               <h1 className="text-5xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-3 sm:mb-6 tracking-tight leading-tight">
                 <span className="whitespace-nowrap">AI for Discovery</span><br />
-                <span className="text-primary relative whitespace-nowrap">& Engineering</span>
+                <span className="text-primary relative whitespace-nowrap">& Experimenting</span>
               </h1>
               
               <p className="nav-mono text-lg sm:text-xl md:text-xl lg:text-2xl text-muted-foreground mb-3 sm:mb-6 md:mb-8 max-w-xl md:max-w-none mx-auto md:mx-0 leading-tight sm:leading-relaxed px-2 sm:px-0 min-h-[3rem] sm:min-h-[3.5rem] md:min-h-[4rem] whitespace-pre-line">
@@ -139,7 +139,7 @@ export const HeroSection = () => {
             <div className="hidden md:flex justify-start items-center md:pr-4 lg:pr-6 xl:pr-8 2xl:pr-12">
               <div className="w-full max-w-md xl:max-w-lg 2xl:max-w-lg md:ml-0 lg:ml-0 xl:ml-8 2xl:ml-12 h-full">
                 <img 
-                  src={isDark ? "/drawing-dark.svg" : "/drawing.svg"} 
+                  src={"/cool.svg"} 
                   alt="Abstract artistic drawing" 
                   className="w-full h-full object-contain aspect-square opacity-90 hover:opacity-100 transition-opacity duration-500 drop-shadow-lg"
                 />
@@ -156,11 +156,11 @@ export const HeroSection = () => {
             <div className="tech-mono mb-4 sm:mb-6 text-sm text-muted-foreground">
               {/* Mobile version - two lines */}
               <div className="block sm:hidden">
-                <div>ALPHA COMMUNITY MEMBERS FROM</div>
+                <div>EARLY ADOPTERS FROM</div>
               </div>
               {/* Desktop version - single line */}
               <div className="hidden sm:block">
-                ALPHA COMMUNITY MEMBERS FROM
+                EARLY ADOPTERS FROM
               </div>
             </div>
             

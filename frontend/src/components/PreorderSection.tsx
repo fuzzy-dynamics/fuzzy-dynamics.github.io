@@ -205,7 +205,7 @@ export const PreorderSection = () => {
   };
 
   return (
-    <section id="preorder" className="pt-8 sm:pt-12 pb-16 sm:pb-24 bg-background relative">
+    <section id="preorder" className="pt-8 sm:pt-12 lg:pt-4 xl:pt-4 pb-16 sm:pb-24 bg-background relative">
       <div className="container mx-auto px-4 sm:px-6 relative">
         <div className="xl:grid xl:grid-cols-2 xl:gap-16 2xl:gap-20 xl:items-start max-w-7xl mx-auto">
           {/* Animated Background - Left Side */}

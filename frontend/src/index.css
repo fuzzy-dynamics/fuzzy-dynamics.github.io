@@ -177,6 +177,26 @@ Usage:
 }
 
 @layer components {
+  /* Glass utilities */
+  .glass-panel {
+    border: 1px solid hsl(var(--foreground) / 0.10);
+    background: hsl(var(--card) / 0.74);
+    backdrop-filter: saturate(120%) blur(10px);
+    -webkit-backdrop-filter: saturate(120%) blur(10px);
+    border-radius: 0.6rem;
+    box-shadow: var(--shadow-elegant);
+  }
+
+  /* Full-cover glassy gradient for hover reveals */
+  .glass-gradient {
+    background: linear-gradient(
+      to top,
+      hsl(var(--background) / 0.72) 10%,
+      hsl(var(--background) / 0.35) 35%,
+      transparent 75%
+    );
+  }
+
   /* Interactive drag element */
   .drag-element {
     @apply cursor-grab active:cursor-grabbing;
@@ -320,6 +340,18 @@ Usage:
     from { box-shadow: var(--shadow-elegant); }
     to { box-shadow: var(--shadow-glow); }
   }
+
+  /* Pinboard visuals */
+  .pinboard-polaroid {
+    @apply bg-white dark:bg-card border border-black/5 dark:border-border rounded-xl shadow-[0_8px_24px_-6px_rgba(0,0,0,0.25)] p-2;
+    @apply transition-transform duration-300;
+  }
+
+  .pinboard-tape {
+    @apply absolute top-0 w-12 h-3 bg-white/80 dark:bg-white/10 rounded-[2px] shadow-sm;
+  }
+  .pinboard-tape--tl { left: 14px; transform: translateY(-8px) rotate(-12deg); }
+  .pinboard-tape--tr { right: 14px; transform: translateY(-8px) rotate(12deg); }
 
   /* Grid pattern background */
   .bg-grid-pattern {
