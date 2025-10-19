@@ -1,32 +1,29 @@
-# Introduction
+# Privacy Policy & Terms of Service
+
+**Last updated: October 5, 2025**
+
+## Introduction
 
 Thank you for visiting our website! At FYDY ("Fuzzy Dynamics, Inc.", "our", "we", "us"), our sole concern is to make good new things for the world. We believe that truly good tools are built on trust—and trust requires transparency about how we handle the information you bring or create on Theatre. This isn't just about compliance; it's fundamental to building something worth using.
 
 For detailed terms and policies, please contact us at [team@fydy.ai](mailto:team@fydy.ai).
 
-Theatre is an AI platform for discovery and engineering with four integrated modes:
-
-- **Explore**: Research, experimentation, and knowledge discovery with AI-powered synthesis, spatial reasoning, and collaborative intelligence.
-- **Build**: Specification-driven development with agent hooks, code generation, and live review.
-- **Review**: Human-in-the-loop navigation and review of code, research, and workflows to maintain agency over automated changes.
-- **Plan**: Task and issue orchestration across platforms like Linear, GitHub, and Jira.
-
-To provide these capabilities, Theatre processes and stores different types of data:
+Theatre is an AI platform for software development and research. To provide these capabilities, Theatre processes and stores different types of data:
 
 - **Code & Technical Files**: Source code, documentation, codebases, and specifications processed on our servers.
-- **Research Data**: Notes, findings, experiments, hypotheses, and discovery artifacts from Explore mode.
+- **Research Data**: Notes, findings, experiments, and hypotheses.
 - **Memory Systems**: Embeddings, knowledge graphs, and indexes computed on our infrastructure to enable context-aware AI interactions and intelligent recall.
 - **Conversations**: Chat history, prompts, AI-generated responses, and artifacts.
 - **Collaboration Data**: Shared specs, reviews, team communications, and workflow patterns. May include metadata to improve services or as requested by your team.
-- **Workflow & Recording Data**: Screen interactions, meeting transcripts, and usage patterns (only when you explicitly enable recording features). Stored in the cloud unless local storage is technically feasible and you request it.
-- **Version Control Data**: DITO (Dynamics and Information Tracker) provides version control for memory, compute states, and reasoning chains, similar to git for your computational environment.
+- **Workflow & Recording Data**: Screen interactions, meeting transcripts, and usage patterns (only when you explicitly enable recording features).
+- **Version Control Data**: Snapshots of computational states and reasoning chains to enable branching and rollback features.
 
 As we continue developing Theatre, our policies may evolve—we'll keep you informed of any significant changes. Key principles include:
 
-- **Privacy Mode**: When enabled, your data is processed in the cloud but retained only as long as functionally necessary to deliver Theatre's capabilities. Never used for training, advertising, or sold to third parties. Automatically deleted when you delete your account.
+- **Privacy Mode**: Controls retention of metadata and processed data (embeddings, indexes, summaries). Your raw code and files are never stored permanently—only temporarily during active sessions for processing. Conversations are stored to serve them back to you, but can be deleted anytime. Never used for training, advertising, or sold to third parties.
 - **Secure Storage**: All data encrypted in transit and at rest. Stored on regional servers (US, India, EU) based on your location.
-- **Human in the Loop**: Theatre is built around keeping humans in control. You decide what gets processed, shared, or automated.
-- **Zero Retention with AI Providers**: We have legally binding zero data retention agreements with all third-party AI providers (OpenAI, Anthropic, Google, and xAI). They process your data but cannot store or train on it.
+- **Zero Retention with AI Providers**: We have legally binding zero data retention agreements with all third-party AI providers (OpenAI, Anthropic, Google, and xAI). They process your raw data to generate responses but cannot store or train on it. The raw content is deleted immediately after processing.
+- **What We Store**: We store conversations to serve them back to you, and metadata/processed representations (embeddings, knowledge graphs, indexes) to avoid expensive recomputation and provide fast, intelligent features. Your raw code and files are only held in memory during active sessions.
 
 # **Privacy Controls**
 
@@ -36,35 +33,172 @@ Privacy Mode controls how long we retain your data and whether it can be used fo
 
 **When Privacy Mode is enabled:**
 
-Your data is processed on our servers and sent to AI providers to deliver Theatre's capabilities, but with strict guarantees:
+Your conversations are stored to serve them back to you. Your raw code/files are processed but never permanently stored. We retain metadata and processed representations with time-limited retention:
 
-- **Code & Files**: Processed on our servers and sent to AI providers as needed. Retained only for the duration functionally necessary to deliver Theatre's features (such as maintaining context during active sessions, powering semantic search, or enabling real-time collaboration). Automatically deleted when no longer required for service operation or when you delete your account.
-- **Memory Systems**: Embeddings, knowledge graphs, and indexes are computed on our servers to power intelligent features. Retained as long as needed to provide seamless context-aware assistance across your work. Deleted when you clear your data or delete your account.
-- **Conversations**: Processed in the cloud to generate AI responses. May be retained to maintain context during active sessions. Deleted when you end sessions, clear history, or delete your account.
-- **Research & Experiments**: Processed and stored on our servers to support ongoing research workflows. Retained to enable continuity across sessions. Deleted when you remove projects or delete your account.
-- **DITO Version Control**: Snapshots of compute states, reasoning chains, and memory are stored to enable branching, rollback, and collaborative workflows. Retained to support version control features. Deleted when you prune history or delete your account.
-- **Zero Training**: Your data is never used to train our models or third-party models. Privacy Mode strictly prohibits all training use.
-- **Zero Third-Party Retention**: We have legally binding zero data retention agreements with all AI providers (OpenAI, Anthropic, Google, and xAI). They process your data to generate responses but cannot store or train on it.
-- **No Ads, No Sales**: Your data is never used for advertising, sold to third parties, or shared outside of delivering Theatre's services to you.
+- **Code & Files (Raw Data)**:
+  - Sent to AI providers for processing, then immediately deleted by providers (zero retention agreement)
+  - Held temporarily on our servers ONLY during active sessions (in-memory processing)
+  - **Never written to permanent storage** - discarded when session ends
+  - This allows Theatre to work with your code without storing it
+
+- **Code & Files (Metadata/Processed Data)**:
+  - Embeddings, indexes, and structural metadata computed to avoid expensive recomputation
+  - Retained for up to 90 days of inactivity to power semantic search without re-processing
+  - Contains mathematical representations, not your actual code
+  - Automatically deleted after 90 days of inactivity or when you delete your account
+  - **Why we store this**: Computing embeddings for large codebases is expensive. Storing these processed representations allows instant semantic search without re-processing your code every time.
+
+- **Conversations**:
+  - Full conversation history stored on our servers to serve back to you across sessions and devices
+  - Retained until you explicitly delete them via the UI
+  - Can be deleted individually or cleared entirely at any time
+
+- **Conversation Metadata**:
+  - Embeddings and summaries of conversations for search and context features
+  - Retained for up to 30 days after conversation is deleted
+  - Allows "search across conversations" without re-processing entire history
+  - Deleted after 30 days or when you delete your account
+
+- **Research & Experiments**:
+  - Research content stored to serve back to you (similar to conversations)
+  - Metadata and indexes retained for up to 90 days after project deletion
+  - Enables continuity and search features
+  - Can be deleted at any time
+
+- **Memory Systems** (Embeddings, Knowledge Graphs):
+  - These are processed representations computed from your data
+  - Retained for up to 90 days of inactivity
+  - **Why we store this**: Avoids recomputing expensive operations every session. Enables instant semantic search and context-aware features.
+  - Automatically pruned after inactivity periods
+  - Can be manually cleared at any time from settings
+
+- **Version Control Snapshots**:
+  - State metadata and reasoning chains for branching and rollback features
+  - Retained for up to 180 days
+  - Can be manually pruned or deleted at any time
+
+- **Zero Training**: Your data (raw or processed) is never used to train our models or third-party models. Privacy Mode strictly prohibits all training use.
+- **Zero Third-Party Retention**: AI providers process your raw data but must immediately delete it. They cannot store or train on it.
+- **No Ads, No Sales**: Your data is never used for advertising, sold to third parties, or shared outside of delivering Theatre's services.
+
+**This approach is standard practice**: Storing processed metadata (embeddings, indexes) while not storing raw data is how modern intelligent systems operate efficiently. The alternative—recomputing embeddings for your entire codebase on every request—would be prohibitively slow and expensive.
 
 **When Privacy Mode is disabled:**
 
-Same cloud processing as Privacy Mode, with extended retention for enhanced features and the option to opt-in to training:
+Same session-only storage for raw code/files, with extended retention of metadata for enhanced features:
 
-- **Code & Files**: Retained for extended periods to provide persistent codebase indexing, cross-device synchronization, improved context across sessions, and long-term project continuity. May be retained indefinitely until you delete projects or your account.
-- **Memory Systems**: Embeddings and knowledge graphs stored persistently to provide fast, continuous semantic search and memory across sessions. Helps Theatre learn your codebase and research over time. You can clear these at any time from settings.
-- **Conversations**: Stored to provide conversation history across devices and sessions, enabling Theatre to maintain context over longer periods and understand your preferences.
-- **Research & Experiments**: Retained to build a persistent knowledge base that evolves with your work, connecting insights across time and projects.
-- **DITO Version Control**: Full version history retained to enable comprehensive branching, time-travel debugging, and collaborative workflows.
-- **Training (Explicit Opt-in)**: When Privacy Mode is disabled, you may opt-in to allow your data to be used to improve Theatre's models and features. This requires explicit consent through a separate setting. Training is never enabled by default.
+- **Code & Files (Raw Data)**:
+  - Still NEVER stored permanently—only during active sessions
+  - Privacy Mode does NOT change raw file storage behavior
+  - Raw code remains in-memory only during processing, then discarded
+
+- **Code & Files (Metadata/Processed Data)**:
+  - Embeddings and indexes retained **indefinitely** (until you delete projects or your account)
+  - Provides persistent semantic search and codebase understanding
+  - Eliminates need to recompute embeddings across sessions
+  - Can be cleared at any time from settings
+
+- **Conversations**:
+  - Full conversation history stored indefinitely (until you delete them)
+  - Same as Privacy Mode ON—conversations are always stored to serve back to you
+  - Can be manually deleted or cleared at any time
+
+- **Conversation Metadata**:
+  - Embeddings, summaries, and patterns retained indefinitely
+  - Enables long-term context and preference learning
+  - Can be cleared at any time from settings
+
+- **Memory Systems**:
+  - Embeddings and knowledge graphs stored persistently
+  - Provides fast, continuous semantic search without recomputation
+  - These are processed representations, not raw content
+  - Can be cleared at any time
+
+- **Research & Experiments**:
+  - Research content: Stored until you delete it (same as conversations)
+  - Metadata: Retained indefinitely to build persistent knowledge graphs
+  - Connects insights across time and projects
+
+- **Version Control Snapshots**:
+  - Full version history retained indefinitely
+  - Enables branching and rollback features
+
+- **Training (Explicit Opt-in)**:
+  - You may opt-in to allow your data (conversations, metadata) to improve Theatre
+  - Requires explicit consent through a separate setting
+  - **Never includes raw code/files** (since those aren't stored anyway)
+  - Training is never enabled by default
 
 **You are always in control:**
 
+- **AI Provider Consent**: Explicitly opt-in to each third-party AI provider (OpenAI, Anthropic, Google, xAI) before any data is sent. Choose which providers you trust and revoke access at any time.
 - **Granular Control**: Enable Privacy Mode globally or per-project. Different projects can have different privacy settings.
-- **Real-time Visibility**: See exactly what data is being processed, where it's being sent, and which AI providers are being used.
+- **Real-time Visibility**: See exactly what data is being processed, where it's being sent, and which AI providers are being used for each request.
+- **Provider Restrictions**: Limit routing to specific providers, or use only FYDY's own models if you prefer.
 - **Immediate Deletion**: Delete your account and all associated data at any time. Complete removal guaranteed within 30 days.
 - **Session Management**: Force-end sessions and clear all temporary caches at any time.
 - **Recording Features**: Screen recording, meeting transcription, and workflow capture are always opt-in and can be disabled at any time.
+
+# **Understanding Data Types & Storage**
+
+**What Theatre Stores (and Doesn't Store)**
+
+Theatre's storage model balances privacy with performance:
+
+**Raw Code & Files - NOT Permanently Stored:**
+- Your source code, documentation, and specification files are **never written to permanent storage**
+- Processed only in-memory during active sessions while you're working
+- Sent to AI providers for processing, then immediately discarded by both the provider and our servers
+- This applies to both Privacy Mode ON and OFF
+- **Why**: Storing millions of lines of code permanently would be a massive privacy and security risk. We don't need to store your code to provide intelligent features—we only need the processed metadata.
+
+**Conversations - Stored to Serve You:**
+- Full conversation text stored on our servers
+- **Why**: You expect to see your conversation history when you log in
+- Retained until you explicitly delete them
+- This is the same as email, messaging apps, or any service that stores user content
+- Can be deleted individually or cleared entirely at any time
+
+**Metadata & Processed Data - Stored for Performance:**
+
+These are computational artifacts derived from your data, stored to avoid expensive recomputation:
+
+1. **Embeddings**: Mathematical vector representations (arrays of numbers)
+   - Example: Your code file → [0.234, -0.891, 0.445, ...] (thousands of numbers)
+   - Used for semantic search ("find files related to authentication")
+   - Computing embeddings for a large codebase can take minutes or hours
+   - **Security note**: While embeddings are mathematical representations, recent research shows they may contain recoverable information. We treat embeddings with the same security rigor as sensitive data.
+
+2. **Knowledge Graphs**: Structural relationships between concepts
+   - Example: "file X imports function Y from module Z"
+   - Enables intelligent suggestions and code navigation
+   - Contains metadata and connections, not code content
+
+3. **Indexes**: Search structures for fast lookup
+   - Maps keywords/concepts to file locations
+   - Avoids scanning your entire codebase on every search
+
+4. **Summaries**: Condensed representations of conversations/research
+   - Used for context without loading full conversation history
+   - Example: "User is working on authentication feature for React app"
+
+**Why Storing Processed Data is Necessary and Acceptable:**
+
+Without storing metadata, Theatre would need to:
+- Re-embed your entire codebase on every search query (minutes of delay)
+- Re-index all files on every session (slow startup)
+- Re-process conversation history to understand context (expensive, slow)
+
+This would make the product unusable. Storing processed metadata is:
+- ✅ **Industry standard practice** (VSCode, GitHub Copilot, Cursor all do this)
+- ✅ **Privacy-preserving** (metadata cannot reconstruct your original code)
+- ✅ **Performance-critical** (enables instant search and intelligent features)
+- ✅ **User-controlled** (can be cleared at any time from settings)
+
+**Storage Duration:**
+- **Privacy Mode ON**: Metadata retained for 30-180 days depending on type
+- **Privacy Mode OFF**: Metadata retained indefinitely for persistent features
+- **Both modes**: All data (raw and metadata) deleted when you delete your account
 
 # **Security Approach**
 
@@ -86,48 +220,47 @@ All infrastructure is:
 
 **AI Providers & Request Routing**
 
-Theatre integrates with multiple AI providers to deliver optimal results. Important details:
+Theatre can integrate with multiple AI providers to deliver optimal results. **Important**: We will always request your explicit opt-in before sending your data to third-party AI providers.
 
-- **Dynamic Routing**: Requests may be routed to different AI providers (OpenAI, Anthropic, Google Vertex, xAI) based on the task, even if you've selected a specific model. For example, if you select Claude in chat, we may still send summarization requests to OpenAI for performance optimization.
-- **Zero Data Retention**: We have legally binding zero data retention agreements with all AI providers. They process your data only to fulfill the immediate request and cannot store or train on it.
-- **Custom Models**: Some Theatre features use our custom models hosted on Fireworks (US, Tokyo, Europe). These models are trained only on data from users who have explicitly opted in to training.
-- **Privacy Mode Routing**: When Privacy Mode is enabled, additional safeguards ensure no data is persisted by any provider.
+- **Explicit Opt-In Required**:
+  - Before sending any data to third-party AI providers (OpenAI, Anthropic, Google Vertex, xAI), we will request your explicit consent
+  - You can choose which providers you're comfortable with and revoke access at any time
+  - Different features may require different providers—we'll always tell you which provider will process your data before you use the feature
+  - **If you don't opt-in**: Theatre will only use our own infrastructure and custom models (hosted on Fireworks). Some advanced features that require specific third-party models may not be available.
 
-**Memory Systems & Data Processing**
+- **Dynamic Routing (With Your Permission)**:
+  - Once you've opted in to specific providers, requests may be routed to different AI providers based on the task
+  - For example, if you've opted into both Claude and OpenAI, we may send chat requests to Claude and summarization to OpenAI for performance optimization
+  - You'll always see which provider is being used in real-time
+  - You can restrict routing to specific providers in settings
 
-Theatre uses a layered memory architecture to provide intelligent, context-aware assistance. All processing happens in the cloud, with retention policies controlled by your Privacy Mode setting:
+- **Zero Data Retention by AI Providers**:
+  - AI providers receive your raw data (code snippets, conversation context, files) to process requests
+  - They must immediately delete it after generating responses
+  - Legally binding zero data retention agreements prohibit storage or training
+  - This applies to all third-party providers we work with
 
-1. **Working Memory (Context Management)**:
+- **What FYDY Stores**:
+  - **NOT your raw code/files**: Only held in-memory during active sessions
+  - **Conversations**: Stored to serve back to you (like email or messaging apps)
+  - **Metadata**: Embeddings, indexes, summaries—stored to avoid expensive recomputation
+  - See "Understanding Data Types & Storage" section for details
+  - Your opt-in preferences and provider usage logs (for transparency)
 
-   - Manages active context for your current tasks and sessions.
-   - Enables Theatre to maintain coherent assistance across your work.
-   - Privacy Mode ON: Retained as long as functionally necessary for active sessions and context continuity.
-   - Privacy Mode OFF: May be retained longer to optimize cross-session performance.
-   - Processed entirely on our secure infrastructure.
+- **Custom Models**:
+  - Our custom models are hosted on Fireworks (US, Tokyo, Europe)
+  - These models are trained only on conversation data from users who have explicitly opted in to training (never code/files, since those aren't stored)
+  - Available to all users, even without third-party provider opt-in
 
-2. **Active Memory**:
-
-   - Computational memory that enables intelligent recall, pattern recognition, and synthesis of information.
-   - Powers Theatre's ability to act as a true collaborative partner rather than a simple chatbot.
-   - Privacy Mode ON: Computed and retained as needed to deliver seamless assistance. Deleted when you clear data or delete your account.
-   - Privacy Mode OFF: Retained persistently to improve performance and enable continuous learning about your work.
-   - This is where intelligent processing happens - not just storage, but active computation.
-
-3. **Persistent Storage** (Knowledge Graphs, Vector Databases, Embeddings):
-   - Enables semantic search, context-aware suggestions, and long-term memory across your projects.
-   - Privacy Mode ON: Computed on our servers and retained as functionally necessary. Deleted when you clear data or delete your account.
-   - Privacy Mode OFF: Stored persistently to enable fast semantic search and evolving understanding of your work.
-   - Stored with encrypted metadata and obfuscated file paths.
-   - Can be cleared at any time from your settings.
-
-**Codebase Indexing**: When enabled (can be disabled in settings), Theatre computes embeddings of your code on our servers to power semantic search and context-aware code generation. Privacy Mode controls retention policies and training permissions, not processing location. All computation happens in the cloud for performance and scale.
+- **Privacy Mode Routing**: When Privacy Mode is enabled, additional safeguards limit metadata retention periods as described above. Your provider opt-in preferences remain separate from Privacy Mode.
 
 **What We Never Do**
 
 - Sell or share your data with third parties for advertising or marketing.
-- Train models on your code, research, or conversations without explicit opt-in consent.
+- Train models on your data without explicit opt-in consent (and training never includes raw code/files since those aren't stored).
 - Share content between different user accounts or organizations.
-- Access your files or data outside of Theatre's explicitly documented features.
+- Access your data outside of Theatre's explicitly documented features.
+- Store your raw code or files permanently (only processed metadata is retained).
 - Store data in regions outside your configured preference without consent.
 
 **Your Rights**
