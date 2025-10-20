@@ -5,7 +5,6 @@ import ReactMarkdown from 'react-markdown';
 
 const Privacy = () => {
   const [markdownContent, setMarkdownContent] = useState<string>('');
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const loadMarkdownContent = async () => {
@@ -20,8 +19,6 @@ const Privacy = () => {
       } catch (error) {
         console.error('Error loading privacy content:', error);
         setMarkdownContent('Content not available.');
-      } finally {
-        setLoading(false);
       }
     };
 
@@ -51,29 +48,23 @@ const Privacy = () => {
 
             {/* Privacy Content - Constrained Width */}
             <article className="max-w-3xl mx-auto">
-              {loading ? (
-                <div className="flex items-center justify-center py-16">
-                  <div className="text-muted-foreground">Loading...</div>
-                </div>
-              ) : (
-                <div className="space-y-8">
-                  <ReactMarkdown 
-                    components={{
-                      h1: ({children}) => <h1 className="text-3xl font-bold mb-6 text-foreground">{children}</h1>,
-                      h2: ({children}) => <h2 className="text-2xl font-semibold mb-4 text-foreground mt-8">{children}</h2>,
-                      h3: ({children}) => <h3 className="text-lg font-medium mb-3 text-foreground mt-6">{children}</h3>,
-                      p: ({children}) => <p className="text-lg text-foreground leading-relaxed mb-4">{children}</p>,
-                      ul: ({children}) => <ul className="list-disc list-outside pl-6 space-y-2 mb-4 ml-4 marker:text-primary">{children}</ul>,
-                      li: ({children}) => <li className="text-lg text-foreground leading-relaxed">{children}</li>,
-                      strong: ({children}) => <strong className="font-semibold text-foreground">{children}</strong>,
-                      code: ({children}) => <code className="bg-muted px-2 py-1 rounded text-sm font-mono">{children}</code>,
-                      a: ({href, children}) => <a href={href} className="text-primary hover:underline">{children}</a>,
-                    }}
-                  >
-                    {markdownContent}
-                  </ReactMarkdown>
-                </div>
-              )}
+              <div className="space-y-8">
+                <ReactMarkdown
+                  components={{
+                    h1: ({children}) => <h1 className="text-3xl font-bold mb-6 text-foreground">{children}</h1>,
+                    h2: ({children}) => <h2 className="text-2xl font-semibold mb-4 text-foreground mt-8">{children}</h2>,
+                    h3: ({children}) => <h3 className="text-lg font-medium mb-3 text-foreground mt-6">{children}</h3>,
+                    p: ({children}) => <p className="text-lg text-foreground leading-relaxed mb-4">{children}</p>,
+                    ul: ({children}) => <ul className="list-disc list-outside pl-6 space-y-2 mb-4 ml-4 marker:text-primary">{children}</ul>,
+                    li: ({children}) => <li className="text-lg text-foreground leading-relaxed">{children}</li>,
+                    strong: ({children}) => <strong className="font-semibold text-foreground">{children}</strong>,
+                    code: ({children}) => <code className="bg-muted px-2 py-1 rounded text-sm font-mono">{children}</code>,
+                    a: ({href, children}) => <a href={href} className="text-primary hover:underline">{children}</a>,
+                  }}
+                >
+                  {markdownContent}
+                </ReactMarkdown>
+              </div>
             </article>
           </div>
         </div>
