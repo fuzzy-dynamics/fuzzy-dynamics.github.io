@@ -63,7 +63,7 @@ export const TopBar = () => {
         <div className="flex items-center justify-between gap-4 sm:gap-6 lg:gap-8 xl:gap-12">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 sm:gap-2.5 flex-shrink-0" onClick={handleNavigation}>
-            <img src="/src/assets/icon.png" alt="Theatre Logo" className="w-7 h-7 sm:w-8 sm:h-8 lg:w-9 lg:h-9" />
+            <img src="/cable-car-logo.svg" alt="Theatre Logo" className="w-7 h-7 sm:w-8 sm:h-8 lg:w-9 lg:h-9" />
             <span className="text-lg sm:text-xl lg:text-[22px] xl:text-2xl font-medium text-foreground whitespace-nowrap" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif' }}>Theatre</span>
           </Link>
 
