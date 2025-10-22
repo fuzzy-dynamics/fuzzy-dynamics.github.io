@@ -4,7 +4,6 @@ import { AgentArchitectureSection } from '@/components/AgentArchitectureSection'
 import { HypothesisEvolutionSection } from '@/components/HypothesisEvolutionSection';
 import { SymbolicReasoningSection } from '@/components/SymbolicReasoningSection';
 import { PreorderSection } from '@/components/PreorderSection';
-import { InteractiveStory } from '@/components/InteractiveStory';
 import { FooterSection } from '@/components/FooterSection';
 import { TopBar } from '@/components/TopBar';
 
