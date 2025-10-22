@@ -1,39 +1,19 @@
 import { useParams, Link } from 'react-router-dom';
-import { useState, useEffect } from 'react';
 import { FooterSection } from '@/components/FooterSection';
 import { TopBar } from '@/components/TopBar';
 import { blogPosts, BlogPost as BlogPostType } from '@/data/blogs';
+import { useMarkdownContent } from '@/hooks/useMarkdownContent';
 import ReactMarkdown from 'react-markdown';
 
 const BlogPost = () => {
   const { id } = useParams<{ id: string }>();
-  const [blogContent, setBlogContent] = useState<string>('');
-  
   const blog = blogPosts.find(post => post.id === Number(id));
 
-  useEffect(() => {
-    const loadBlogContent = async () => {
-      if (!blog) {
-        return;
-      }
-
-      try {
-        // Load the markdown content
-        const response = await fetch(`/blogs/blog-${id}.md`);
-        if (response.ok) {
-          const content = await response.text();
-          setBlogContent(content);
-        } else {
-          setBlogContent('Content not available.');
-        }
-      } catch (error) {
-        console.error('Error loading blog content:', error);
-        setBlogContent('Content not available.');
-      }
-    };
-
-    loadBlogContent();
-  }, [id, blog]);
+  // Load markdown content seamlessly without intermediate loading states
+  const blogContent = useMarkdownContent(
+    `/blogs/blog-${id}.md`,
+    'Content will be added soon...'
+  );
 
   if (!blog) {
     return (
@@ -103,7 +83,7 @@ const BlogPost = () => {
                     a: ({href, children}) => <a href={href} className="text-primary hover:underline">{children}</a>,
                   }}
                 >
-                  {blogContent || 'Content will be added soon...'}
+                  {blogContent}
                 </ReactMarkdown>
               </div>
             </article>

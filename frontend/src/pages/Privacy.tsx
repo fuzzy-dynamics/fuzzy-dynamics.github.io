@@ -1,29 +1,11 @@
 import { FooterSection } from '@/components/FooterSection';
 import { TopBar } from '@/components/TopBar';
-import { useState, useEffect } from 'react';
+import { useMarkdownContent } from '@/hooks/useMarkdownContent';
 import ReactMarkdown from 'react-markdown';
 
 const Privacy = () => {
-  const [markdownContent, setMarkdownContent] = useState<string>('');
-
-  useEffect(() => {
-    const loadMarkdownContent = async () => {
-      try {
-        const response = await fetch('/blogs/privacy.md');
-        if (response.ok) {
-          const content = await response.text();
-          setMarkdownContent(content);
-        } else {
-          setMarkdownContent('Content not available.');
-        }
-      } catch (error) {
-        console.error('Error loading privacy content:', error);
-        setMarkdownContent('Content not available.');
-      }
-    };
-
-    loadMarkdownContent();
-  }, []);
+  // Load markdown content seamlessly without intermediate loading states
+  const markdownContent = useMarkdownContent('/blogs/privacy.md');
 
   return (
     <div className="min-h-screen bg-background flex flex-col">

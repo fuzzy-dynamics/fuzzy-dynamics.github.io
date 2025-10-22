@@ -1,23 +1,22 @@
-import { Github, Mail, ExternalLink, Sun, Moon } from "lucide-react";
-import { useTheme } from "@/contexts/ThemeContext";
+import { Github, Mail, ExternalLink } from "lucide-react";
 
-export const FooterSection = () => {
-  const { theme, setTheme } = useTheme();
+interface FooterSectionProps {
+  showTopBorder?: boolean;
+}
 
-  const toggleTheme = () => {
-    setTheme(theme === 'dark' ? 'light' : 'dark');
-  };
-  
+export const FooterSection = ({ showTopBorder = true }: FooterSectionProps) => {
+
   return (
     <footer className="bg-background">
-      <div className="container mx-auto px-8 sm:px-16 pb-10 sm:pb-14">
-        <div className="max-w-7xl mx-auto pt-4 border-t border-muted-foreground/20">
+      <div className="container mx-auto px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 pb-8 sm:pb-10 md:pb-14">
+        <div className={`max-w-7xl mx-auto pt-8 ${showTopBorder ? 'border-t border-muted-foreground/20' : ''}`}>
           <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end space-y-8 sm:space-y-0">
             {/* Brand */}
             <div className="space-y-3 sm:space-y-4 text-center sm:text-left">
               <h3 className="text-xl sm:text-2xl font-bold">Theatre</h3>
               <p className="text-muted-foreground">
-                AI for Discovery & Experimenting
+                AI for Discovery & Experimentation
+                <br/>by Fuzzy Dynamics (FYDY)
               </p>
             </div>
 
@@ -54,18 +53,9 @@ export const FooterSection = () => {
               >
                 <Mail size={20} />
               </a>
-
-              {/* Theme Toggle Button */}
-              <button
-                onClick={toggleTheme}
-                className="p-1 rounded-md bg-muted/50 border border-border hover:bg-muted transition-colors"
-                aria-label="Toggle theme"
-              >
-                {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
-              </button>
             </div>
             <div className="text-center sm:text-right">
-              © 2025 FYDY Inc.
+              © 2025 Fuzzy Dynamics Inc.
             </div>
           </div>
         </div>

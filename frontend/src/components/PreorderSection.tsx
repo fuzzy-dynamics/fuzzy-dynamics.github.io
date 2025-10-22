@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import { AuthButtons } from './AuthButtons';
-import { SlidingEaseVerticalBars } from './SlidingEaseVerticalBars';
+import { useTheme } from '@/contexts/ThemeContext';
 
 // API Configuration
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
@@ -51,6 +50,7 @@ const validateEmail = (email: string) => {
 };
 
 export const PreorderSection = () => {
+  const { isDark } = useTheme();
   const [email, setEmail] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [emailError, setEmailError] = useState('');
@@ -205,174 +205,160 @@ export const PreorderSection = () => {
   };
 
   return (
-    <section id="preorder" className="pt-8 sm:pt-12 lg:pt-4 xl:pt-4 pb-16 sm:pb-24 bg-background relative">
-      <div className="container mx-auto px-4 sm:px-6 relative">
-        <div className="xl:grid xl:grid-cols-2 xl:gap-16 2xl:gap-20 xl:items-start max-w-7xl mx-auto">
-          {/* Animated Background - Left Side */}
-          <div className="hidden xl:flex justify-center items-start xl:pl-20 2xl:pl-24 xl:pt-8">
-            <div className="w-full max-w-lg 2xl:max-w-xl">
-              <SlidingEaseVerticalBars />
-            </div>
-          </div>
+    <section id="preorder" className="py-16 sm:py-20 md:py-24 lg:py-32 bg-background relative">
+      {/* Paper background texture */}
+      <div 
+        className="absolute inset-0 opacity-40"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='paper'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.04' numOctaves='5' /%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23paper)' opacity='0.03'/%3E%3C/svg%3E")`,
+          backgroundColor: isDark ? 'transparent' : 'hsl(45, 20%, 96%)',
+        }}
+      />
+      
+      <div className="container mx-auto px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 relative z-10">
+        <div className="max-w-2xl mx-auto text-center">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal mb-8 sm:mb-12 leading-tight text-foreground" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif' }}>
+            Try Theatre now.
+          </h2>
 
-          {/* Content - Right Side */}
-          <div className="text-center xl:pr-8 2xl:pr-12">
-            <h2 className="text-3xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-6 sm:mb-8 leading-tight">
-              Join the future of
-              <span className="block text-primary">
-                making
-              </span>
-            </h2>
-
-            <div className="max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl mx-auto xl:mx-0 px-4 sm:px-0">
-              {/* Fixed height container to prevent layout shifts */}
-              <div className="min-h-[420px] flex flex-col justify-center">
-                {!isSubmitted ? (
-                  <div className="flex h-full w-full flex-col items-center justify-center">
-                    {!showVerification ? (
-                      <form onSubmit={handleSubmit} className="w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-md">
-                        <div className="flex flex-col gap-4">
-                          <div className="space-y-2">
-                            <input
-                              type="email"
-                              placeholder="Enter your email address"
-                              value={email}
-                              onChange={handleEmailChange}
-                              className={`w-full rounded-lg border px-4 py-3 text-foreground placeholder-muted-foreground bg-background focus:outline-none focus:ring-1 disabled:opacity-50 transition-all duration-300 ${
-                                emailError 
-                                  ? 'border-red-500 focus:border-red-500 focus:ring-red-500' 
-                                  : 'border-border hover:border-primary/50 focus:border-primary focus:ring-primary'
-                              }`}
-                              disabled={isValidating}
-                              required
-                            />
-                            {emailError && (
-                              <p className="text-sm text-red-500 text-left">{emailError}</p>
-                            )}
-                            {emailSuggestion && (
-                              <button
-                                type="button"
-                                onClick={handleSuggestionClick}
-                                className="text-sm text-primary hover:text-primary/80 text-left underline"
-                              >
-                                Use: {emailSuggestion}
-                              </button>
-                            )}
-                          </div>
-                          <button
-                            type="submit"
-                            disabled={!!emailError || !email.trim() || isValidating}
-                            className="w-full rounded-md bg-primary px-6 py-3 text-[16px] font-medium text-primary-foreground transition-colors duration-300 hover:bg-primary/80 disabled:cursor-not-allowed disabled:opacity-50"
-                          >
-                            <span className="flex items-center justify-center gap-2">
-                              {isValidating ? 'Validating...' : 'Reserve Access'}
-                            </span>
-                          </button>
-                        </div>
-                      </form>
-                    ) : (
-                      <div className="w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-md">
-                        <div className="text-center mb-6">
-                          <h3 className="text-xl font-semibold text-foreground mb-2">Check your email</h3>
-                          <p className="text-muted-foreground text-sm">
-                            We've sent a 6-digit verification code to <span className="font-medium">{email}</span>
-                          </p>
-                        </div>
+          <div className="max-w-md mx-auto">
+            {!isSubmitted ? (
+              <div className="flex flex-col items-center justify-center">
+                {!showVerification ? (
+                  <>
+                    <form onSubmit={handleSubmit} className="w-full">
+                      <div className="flex flex-col gap-4">
+                        <input
+                          type="email"
+                          placeholder="Enter your email address"
+                          value={email}
+                          onChange={handleEmailChange}
+                          className={`w-full rounded-full border px-6 py-4 text-base text-foreground placeholder-muted-foreground bg-background focus:outline-none focus:ring-2 disabled:opacity-50 transition-all duration-300 ${
+                            emailError 
+                              ? 'border-muted-foreground/40 focus:border-muted-foreground focus:ring-muted-foreground/20' 
+                              : 'border-border hover:border-foreground/30 focus:border-foreground focus:ring-foreground/20'
+                          }`}
+                          disabled={isValidating}
+                          required
+                        />
                         
-                        <form onSubmit={handleVerificationSubmit} className="space-y-4">
-                          <div className="space-y-2">
-                            <input
-                              type="text"
-                              placeholder="Enter 6-digit code"
-                              value={verificationCode}
-                              onChange={(e) => {
-                                const value = e.target.value.replace(/\D/g, '').slice(0, 6);
-                                setVerificationCode(value);
-                                setVerificationError('');
-                              }}
-                              className={`w-full rounded-lg border px-4 py-3 text-center text-2xl tracking-widest font-mono text-foreground placeholder-muted-foreground bg-background focus:outline-none focus:ring-1 disabled:opacity-50 transition-all duration-300 ${
-                                verificationError 
-                                  ? 'border-red-500 focus:border-red-500 focus:ring-red-500' 
-                                  : 'border-border hover:border-primary/50 focus:border-primary focus:ring-primary'
-                              }`}
-                              disabled={isVerifying}
-                              maxLength={6}
-                              required
-                            />
-                            {verificationError && (
-                              <p className={`text-sm text-left ${verificationError.includes('sent') ? 'text-green-600' : 'text-red-500'}`}>
-                                {verificationError}
-                              </p>
-                            )}
-                          </div>
-                          
-                          <div className="space-y-3">
+                        {/* Reserved space for either error/suggestion or button - fixed height to prevent layout shift */}
+                        <div className="min-h-[60px] flex flex-col items-center justify-center gap-2">
+                          {emailError ? (
+                            <>
+                              <p className="text-sm text-muted-foreground text-center">{emailError}</p>
+                              {emailSuggestion && (
+                                <button
+                                  type="button"
+                                  onClick={handleSuggestionClick}
+                                  className="text-sm text-muted-foreground hover:text-foreground text-center underline"
+                                >
+                                  Use: {emailSuggestion}
+                                </button>
+                              )}
+                            </>
+                          ) : email.trim() && validateEmail(email.trim()).isValid ? (
                             <button
                               type="submit"
-                              disabled={verificationCode.length !== 6 || isVerifying}
-                              className="w-full rounded-md bg-primary px-6 py-3 text-[16px] font-medium text-primary-foreground transition-colors duration-300 hover:bg-primary/80 disabled:cursor-not-allowed disabled:opacity-50"
+                              disabled={isValidating}
+                              className="w-full rounded-full bg-foreground px-8 py-4 text-base font-medium text-background transition-all duration-300 hover:bg-foreground/90 disabled:cursor-not-allowed disabled:opacity-50"
+                              style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif' }}
                             >
-                              {isVerifying ? 'Verifying...' : 'Verify Code'}
+                              {isValidating ? 'Validating...' : 'Reserve Access'}
                             </button>
-                            
-                            <div className="text-center">
-                              <button
-                                type="button"
-                                onClick={handleResendCode}
-                                disabled={isValidating}
-                                className="text-sm text-muted-foreground hover:text-foreground underline disabled:opacity-50"
-                              >
-                                Didn't receive the code? Resend
-                              </button>
-                            </div>
-                            
-                            <div className="text-center">
-                              <button
-                                type="button"
-                                onClick={() => {
-                                  setShowVerification(false);
-                                  setVerificationCode('');
-                                  setVerificationError('');
-                                }}
-                                className="text-sm text-muted-foreground hover:text-foreground underline"
-                              >
-                                Change email address
-                              </button>
-                            </div>
-                          </div>
-                        </form>
+                          ) : null}
+                        </div>
                       </div>
-                    )}
-                    
-                    {!showVerification && (
-                      <div className="mt-8">
-                        <AuthButtons />
-                      </div>
-                    )}
-                  </div>
+                    </form>
+                  </>
                 ) : (
-                  <div className="text-center space-y-4 flex flex-col justify-center">
-                    <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto">
-                      <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
+                  <div className="w-full">
+                    <div className="text-center mb-6">
+                      <h3 className="text-xl font-semibold text-foreground mb-2">Check your email</h3>
+                      <p className="text-muted-foreground text-sm">
+                        We've sent a 6-digit verification code to <span className="font-medium">{email}</span>
+                      </p>
                     </div>
-                    <h3 className="text-2xl font-bold text-foreground">You're in!</h3>
-                    <p className="text-muted-foreground">
-                      {successMessage || "We'll notify you when early access opens. Check your email for next steps. Mail us if you have any ideas or questions."}
-                    </p>
-                  </div>
-                )}
-                
-                {!isSubmitted && (
-                  <div className="flex items-center justify-center mt-6">
-                    <div className="tech-mono text-muted-foreground">
-                      Limited Beta • Starting Soon
-                    </div>
+                    
+                    <form onSubmit={handleVerificationSubmit} className="space-y-4">
+                      <input
+                        type="text"
+                        placeholder="Enter 6-digit code"
+                        value={verificationCode}
+                        onChange={(e) => {
+                          const value = e.target.value.replace(/\D/g, '').slice(0, 6);
+                          setVerificationCode(value);
+                          setVerificationError('');
+                        }}
+                        className={`w-full rounded-full border px-6 py-4 text-center text-xl tracking-widest font-mono text-foreground placeholder-muted-foreground bg-background focus:outline-none focus:ring-2 disabled:opacity-50 transition-all duration-300 ${
+                          verificationError && !verificationError.includes('sent')
+                            ? 'border-muted-foreground/40 focus:border-muted-foreground focus:ring-muted-foreground/20' 
+                            : 'border-border hover:border-foreground/30 focus:border-foreground focus:ring-foreground/20'
+                        }`}
+                        disabled={isVerifying}
+                        maxLength={6}
+                        required
+                      />
+                      
+                      {/* Reserved space for error message - fixed height to prevent layout shift */}
+                      <div className="min-h-[24px] flex items-center justify-center">
+                        {verificationError && (
+                          <p className={`text-sm text-center ${verificationError.includes('sent') ? 'text-foreground' : 'text-muted-foreground'}`}>
+                            {verificationError}
+                          </p>
+                        )}
+                      </div>
+                      
+                      <div className="space-y-3">
+                        <button
+                          type="submit"
+                          disabled={verificationCode.length !== 6 || isVerifying}
+                          className="w-full rounded-full bg-foreground px-8 py-4 text-base font-medium text-background transition-all duration-300 hover:bg-foreground/90 disabled:cursor-not-allowed disabled:opacity-50"
+                          style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif' }}
+                        >
+                          {isVerifying ? 'Verifying...' : 'Verify Code'}
+                        </button>
+                        
+                        <div className="text-center space-y-2">
+                          <button
+                            type="button"
+                            onClick={handleResendCode}
+                            disabled={isValidating}
+                            className="text-sm text-muted-foreground hover:text-foreground underline disabled:opacity-50 block w-full"
+                          >
+                            Didn't receive the code? Resend
+                          </button>
+                          
+                          <button
+                            type="button"
+                            onClick={() => {
+                              setShowVerification(false);
+                              setVerificationCode('');
+                              setVerificationError('');
+                            }}
+                            className="text-sm text-muted-foreground hover:text-foreground underline block w-full"
+                          >
+                            Change email address
+                          </button>
+                        </div>
+                      </div>
+                    </form>
                   </div>
                 )}
               </div>
-            </div>
+            ) : (
+              <div className="text-center space-y-6 py-8">
+                <div className="w-16 h-16 bg-foreground rounded-full flex items-center justify-center mx-auto">
+                  <svg className="w-8 h-8 text-background" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <h3 className="text-2xl font-bold text-foreground">You're in!</h3>
+                <p className="text-muted-foreground">
+                  {successMessage || "We'll notify you when early access opens. Check your email for next steps."}
+                </p>
+              </div>
+            )}
           </div>
         </div>
       </div>

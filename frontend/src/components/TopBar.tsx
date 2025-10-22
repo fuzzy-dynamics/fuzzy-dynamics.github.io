@@ -1,11 +1,10 @@
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import { useState, useEffect } from "react";
-import { Menu, X, CableCar } from "lucide-react";
+import { useState } from "react";
+import { Menu, X } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 export const TopBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
   const isMobile = useIsMobile();
   const navigate = useNavigate();
   const location = useLocation();
@@ -58,41 +57,32 @@ export const TopBar = () => {
     }
   };
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 0);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   return (
-    <div className={`fixed top-0 left-0 right-0 z-50 bg-background transition-shadow duration-200 ${isScrolled ? 'shadow-sm' : ''}`}>
-      <div className="container mx-auto px-4 sm:px-6 py-4">
-        <div className="flex items-center justify-between">
+    <div className="fixed top-0 left-0 right-0 z-50 bg-background">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 py-3 sm:py-4">
+        <div className="flex items-center justify-between gap-4 sm:gap-6 lg:gap-8 xl:gap-12">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2" onClick={handleNavigation}>
-            <CableCar className="w-8 h-8 text-foreground" />
-            <span className="text-xl font-semibold text-foreground">Theatre</span>
+          <Link to="/" className="flex items-center gap-2 sm:gap-2.5 flex-shrink-0" onClick={handleNavigation}>
+            <img src="/src/assets/icon.png" alt="Theatre Logo" className="w-7 h-7 sm:w-8 sm:h-8 lg:w-9 lg:h-9" />
+            <span className="text-lg sm:text-xl lg:text-[22px] xl:text-2xl font-medium text-foreground whitespace-nowrap" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif' }}>Theatre</span>
           </Link>
-          
+
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-6">
-            <Link to="/research" className="nav-link font-sans text-base" onClick={handleNavigation}>Research</Link>
-            <Link to="/privacy" className="nav-link font-sans text-base" onClick={handleNavigation}>Privacy Policy</Link>
+          <nav className="hidden md:flex items-center gap-4 lg:gap-6 xl:gap-8 2xl:gap-10 ml-auto">
+            <Link to="/blog" className="nav-link font-sans text-sm lg:text-base xl:text-[17px] whitespace-nowrap" onClick={handleNavigation}>Blog</Link>
+            <Link to="/research" className="nav-link font-sans text-sm lg:text-base xl:text-[17px] whitespace-nowrap" onClick={handleNavigation}>Research</Link>
             <button
-              className="nav-mono font-sans text-base px-3 py-2 rounded-md transition-colors duration-200 bg-[hsl(var(--muted-hover))] hover:text-foreground"
+              className="nav-mono font-sans text-sm lg:text-base xl:text-[17px] px-3 lg:px-4 xl:px-5 py-2 lg:py-2.5 rounded-md transition-colors duration-200 bg-[hsl(var(--muted-hover))] hover:text-foreground whitespace-nowrap flex-shrink-0"
               onClick={handleJoinAccess}
             >
               Join
             </button>
-          </div>
-          
+          </nav>
+
           {/* Mobile Menu Button */}
           <button
             onClick={toggleMenu}
-            className="md:hidden p-2 text-foreground hover:text-primary transition-colors"
+            className="md:hidden p-2 text-foreground hover:text-primary transition-colors flex-shrink-0"
             aria-label="Toggle menu"
           >
             {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
@@ -101,29 +91,29 @@ export const TopBar = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && isMobile && (
-          <div className="md:hidden mt-4 pb-4 border-t border-border">
-            <div className="flex flex-col space-y-2 pt-4">
+          <div className="md:hidden mt-3 sm:mt-4 pb-3 sm:pb-4 border-t border-border">
+            <nav className="flex flex-col gap-1 sm:gap-2 pt-3 sm:pt-4">
+              <Link
+                to="/blog"
+                className="nav-link font-sans text-base sm:text-[17px] block py-2 sm:py-2.5 px-2 rounded-md hover:bg-muted/50 transition-colors"
+                onClick={handleNavigation}
+              >
+                Blog
+              </Link>
               <Link
                 to="/research"
-                className="nav-link font-sans text-base block py-2"
+                className="nav-link font-sans text-base sm:text-[17px] block py-2 sm:py-2.5 px-2 rounded-md hover:bg-muted/50 transition-colors"
                 onClick={handleNavigation}
               >
                 Research
               </Link>
-              <Link
-                to="/privacy"
-                className="nav-link font-sans text-base block py-2"
-                onClick={handleNavigation}
-              >
-                Privacy Policy
-              </Link>
               <button
-                className="nav-mono font-sans text-base px-3 py-2 rounded-md transition-colors duration-200 bg-[hsl(var(--muted-hover))] hover:text-foreground text-left block"
+                className="nav-mono font-sans text-base sm:text-[17px] px-3 py-2 sm:py-2.5 rounded-md transition-colors duration-200 bg-[hsl(var(--muted-hover))] hover:text-foreground text-left block mt-2"
                 onClick={handleJoinAccess}
               >
                 Join
               </button>
-            </div>
+            </nav>
           </div>
         )}
       </div>

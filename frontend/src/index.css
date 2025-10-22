@@ -25,7 +25,7 @@ Usage:
   
   :root {
     /* Base colors - sophisticated monochromatic */
-    --background: 42 38% 97%;
+    --background: 0 0 100%;
     --foreground: 240 9% 9%;
 
     --card: 0 0% 100%;
@@ -35,7 +35,7 @@ Usage:
     --popover-foreground: 240 9% 9%;
 
     /* Primary - sophisticated blue for CTAs and accents */
-    --primary: 222 84% 52%;
+    --primary: 227.65 100% 52.35%;
     --primary-foreground: 0 0% 100%;
     --primary-glow: 222 84% 62%;
 
@@ -104,7 +104,7 @@ Usage:
 
   .dark {
     /* Soft Monokai-inspired theme with warm, cozy undertones */
-    --background: 64 8% 15%;
+    --background: 0 0 3%;
     --foreground: 60 5% 92%;
 
     --card: 64 8% 18%;

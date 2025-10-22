@@ -47,14 +47,8 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({
   storageKey = 'vite-ui-theme',
 }) => {
   const [theme, setThemeState] = useState<Theme>(() => {
-    // Check localStorage first
-    if (typeof window !== 'undefined') {
-      const stored = localStorage.getItem(storageKey) as Theme;
-      if (stored && (stored === 'system' || stored === 'light' || stored === 'dark')) {
-        return stored;
-      }
-    }
-    return defaultTheme;
+    // Always use light theme
+    return 'light';
   });
 
   useEffect(() => {
@@ -71,9 +65,6 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({
     
     // Add current theme class
     root.classList.add(actualTheme);
-    
-    // Store in localStorage
-    localStorage.setItem(storageKey, theme);
     
     // Listen for system theme changes if using system preference
     if (theme === 'system') {
