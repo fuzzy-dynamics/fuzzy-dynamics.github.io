@@ -63,14 +63,12 @@ export const TopBar = () => {
         <div className="flex items-center justify-between gap-4 sm:gap-6 lg:gap-8 xl:gap-12">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 sm:gap-2.5 flex-shrink-0" onClick={handleNavigation}>
-            <img src="/cable-car-logo.svg" alt="Theatre Logo" className="w-7 h-7 sm:w-8 sm:h-8 lg:w-9 lg:h-9" />
-            <span className="text-lg sm:text-xl lg:text-[22px] xl:text-2xl font-medium text-foreground whitespace-nowrap" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif' }}>Theatre</span>
+            <img src="/black.svg" alt="Theater Logo" className="w-7 h-7 sm:w-8 sm:h-8 lg:w-7 lg:h-7" />
+            <span className="text-lg sm:text-xl lg:text-[22px] xl:text-2xl font-medium text-foreground whitespace-nowrap">Theater</span>
           </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-4 lg:gap-6 xl:gap-8 2xl:gap-10 ml-auto">
-            <Link to="/blog" className="nav-link font-sans text-sm lg:text-base xl:text-[17px] whitespace-nowrap" onClick={handleNavigation}>Blog</Link>
-            <Link to="/research" className="nav-link font-sans text-sm lg:text-base xl:text-[17px] whitespace-nowrap" onClick={handleNavigation}>Research</Link>
             <button
               className="nav-mono font-sans text-sm lg:text-base xl:text-[17px] px-3 lg:px-4 xl:px-5 py-2 lg:py-2.5 rounded-md transition-colors duration-200 bg-[hsl(var(--muted-hover))] hover:text-foreground whitespace-nowrap flex-shrink-0"
               onClick={handleJoinAccess}
@@ -93,22 +91,8 @@ export const TopBar = () => {
         {isMenuOpen && isMobile && (
           <div className="md:hidden mt-3 sm:mt-4 pb-3 sm:pb-4 border-t border-border">
             <nav className="flex flex-col gap-1 sm:gap-2 pt-3 sm:pt-4">
-              <Link
-                to="/blog"
-                className="nav-link font-sans text-base sm:text-[17px] block py-2 sm:py-2.5 px-2 rounded-md hover:bg-muted/50 transition-colors"
-                onClick={handleNavigation}
-              >
-                Blog
-              </Link>
-              <Link
-                to="/research"
-                className="nav-link font-sans text-base sm:text-[17px] block py-2 sm:py-2.5 px-2 rounded-md hover:bg-muted/50 transition-colors"
-                onClick={handleNavigation}
-              >
-                Research
-              </Link>
               <button
-                className="nav-mono font-sans text-base sm:text-[17px] px-3 py-2 sm:py-2.5 rounded-md transition-colors duration-200 bg-[hsl(var(--muted-hover))] hover:text-foreground text-left block mt-2"
+                className="nav-mono font-sans text-base sm:text-[17px] px-3 py-2 sm:py-2.5 rounded-md transition-colors duration-200 bg-[hsl(var(--muted-hover))] hover:text-foreground text-left block"
                 onClick={handleJoinAccess}
               >
                 Join

@@ -149,8 +149,26 @@ export const SymbolicReasoningSection = () => {
       <div className="container mx-auto px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
           <div className="md:grid md:grid-cols-2 items-center">
-            {/* Game of Life Visualization - Left Side */}
-            <div className="flex justify-center items-center order-2 md:order-1 md:px-4 lg:px-6 xl:px-8">
+            {/* Text Content */}
+            <div className="mb-8 md:mb-0 md:px-4 lg:px-6 xl:px-8 flex flex-col justify-center md:order-2">
+              <h2 className="text-lg sm:text-xl font-medium mb-6">
+              Collaboration and observability.
+              </h2>
+              <div className="space-y-4 text-base sm:text-lg text-muted-foreground opacity-70">
+                <p>
+                  We believe that meaningful progress in science and engineering requires deeper context and tight feedback loops between researchers and AI.
+                  <br/>
+                  <br/>
+                  Theater works alongside you. From searching through literature and surfacing new approaches to completing partial formulations and adding citations.
+                  <br/>
+                  <br/>
+                  This also generates massive amounts of semistructured data which you can navigate and query efficiently with built-in observability.
+                </p>
+              </div>
+            </div>
+
+            {/* Game of Life Visualization */}
+            <div className="flex justify-center items-center md:px-4 lg:px-6 xl:px-8 md:order-1">
               <div className="relative w-full max-w-lg">
                 {/* Notebook paper texture */}
                 <div 
@@ -368,18 +386,6 @@ export const SymbolicReasoningSection = () => {
                     </text>
                   </g>
                 </svg>
-              </div>
-            </div>
-
-            {/* Text Content - Right Side */}
-            <div className="mb-8 md:mb-0 md:px-4 lg:px-6 xl:px-8 order-1 md:order-2 flex flex-col justify-center">
-              <h2 className="text-lg sm:text-xl font-normal mb-6 tracking-tight leading-tight font-['Helvetica_Neue']">
-                Reasoning with strong trial and error
-              </h2>
-              <div className="space-y-4 text-lg sm:text-xl text-muted-foreground font-['Helvetica_Neue'] opacity-60">
-                <p>
-                  Systematic decomposition breaks complex hypotheses into fundamental axioms, verifying each independently to ensure logical consistency from ground truth to novel synthesis.
-                </p>
               </div>
             </div>
           </div>

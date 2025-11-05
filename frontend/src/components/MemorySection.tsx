@@ -63,12 +63,18 @@ export const MemorySection = () => {
           <div className="md:grid md:grid-cols-2 items-center">
             {/* Text Content */}
             <div className="mb-8 md:mb-0 md:px-4 lg:px-6 xl:px-8 flex flex-col justify-center">
-              <h2 className="text-lg sm:text-xl font-normal mb-6 tracking-tight leading-tight font-['Helvetica_Neue']">
-                Memory infrastructure
+              <h2 className="text-lg sm:text-xl font-medium mb-6">
+                Memory infrastructure and context that evolves.
               </h2>
-              <div className="space-y-4 text-lg sm:text-xl text-muted-foreground font-['Helvetica_Neue'] opacity-60">
+              <div className="space-y-4 text-base sm:text-lg text-muted-foreground opacity-70">
                 <p>
-                  Adaptive memory builds a living knowledge graph that captures connections and insights from your research, growing smarter with every interaction.
+                Context evolves and persists across sessions. The memory layer adapts to your work and domain, preventing context rot as reasoning deepens.
+                <br/>
+                <br/>
+                Deep indexing into existing literature retrieves relevant knowledge when agents need it.
+                <br/>
+                <br/>
+                Optimized embedding representations capture structure that standard approaches miss, enabling precise retrieval across transferable concepts and citation chains.
                 </p>
               </div>
             </div>

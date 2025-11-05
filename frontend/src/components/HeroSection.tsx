@@ -1,48 +1,31 @@
-import { useState, useEffect, useCallback, useMemo } from 'react';
-import { useTheme } from '@/contexts/ThemeContext';
+import { useState, useEffect, useCallback, useMemo, useRef } from 'react';
 import { KeplerOrbit } from './KeplerOrbit';
+import { TrustSection } from './TrustSection';
 import demo2 from '@/assets/demo2.jpg';
 import demo3 from '@/assets/demo3.png';
+import demo1 from '@/assets/demo1.mp4';
 import demo4 from '@/assets/demo4.png';
 
 // ============================================================================
 // TYPE DEFINITIONS
 // ============================================================================
 
-interface CompanyLogo {
-  name: string;
-  logo: string;
-  darkLogo?: string;
-  alt: string;
-  url: string;
-  className?: string;
-}
-
 interface CarouselImage {
   src: string;
   alt: string;
-  position?: 'left' | 'right';
+  type?: 'image' | 'video';
 }
 
 // ============================================================================
 // CONFIGURATION
 // ============================================================================
 
-/** Desktop carousel images - full width display */
+/** Carousel images - same for both desktop and mobile */
 const HERO_IMAGES: CarouselImage[] = [
-  { src: demo2, alt: 'Theatre visualization - implementation view' },
-  { src: demo3, alt: 'Theatre visualization - synthesis workspace' },
-  { src: demo4, alt: 'Theatre visualization - analysis view' }
-];
-
-/** Mobile carousel images - split into left/right views for detail */
-const MOBILE_HERO_IMAGES: CarouselImage[] = [
-  { src: demo2, alt: 'Theatre visualization - implementation view (left)', position: 'left' },
-  { src: demo2, alt: 'Theatre visualization - implementation view (right)', position: 'right' },
-  { src: demo3, alt: 'Theatre visualization - synthesis workspace (left)', position: 'left' },
-  { src: demo3, alt: 'Theatre visualization - synthesis workspace (right)', position: 'right' },
-  { src: demo4, alt: 'Theatre visualization - analysis view (left)', position: 'left' },
-  { src: demo4, alt: 'Theatre visualization - analysis view (right)', position: 'right' }
+  { src: demo2, alt: 'Theater visualization - implementation view' },
+  { src: demo3, alt: 'Theater visualization - synthesis workspace' },
+  { src: demo1, alt: 'Theater visualization - demo', type: 'video' },
+  { src: demo4, alt: 'Theater visualization - analysis view' }
 ];
 
 /** Carousel timing and behavior configuration */
@@ -52,44 +35,6 @@ const CAROUSEL_CONFIG = {
   MIN_SWIPE_DISTANCE: 50, // Minimum px distance to trigger navigation
   MOBILE_BREAKPOINT: 640, // Tailwind 'sm' breakpoint
 } as const;
-
-// Company logos for trust section
-const companies: CompanyLogo[] = [
-  {
-    name: "Google",
-    logo: "/logos/google-logo.svg",
-    alt: "Google logo",
-    url: "https://google.com"
-  },
-  {
-    name: "Anthropic",
-    logo: "/logos/anthropic-logo.svg",
-    darkLogo: "/logos/anthropic-logo-dark.svg",
-    alt: "Anthropic logo",
-    url: "https://anthropic.com",
-    className: "h-6 sm:h-8 md:h-10"
-  },
-  {
-    name: "Salesforce",
-    logo: "/logos/salesforce-logo.svg",
-    alt: "Salesforce logo",
-    url: "https://salesforce.com"
-  },
-  {
-    name: "Microsoft",
-    logo: "/logos/microsoft-logo.svg",
-    alt: "Microsoft logo",
-    url: "https://microsoft.com"
-  },
-  {
-    name: "Uber",
-    logo: "/logos/uber-logo.svg",
-    darkLogo: "/logos/uber-logo-dark.svg",
-    alt: "Uber logo",
-    url: "https://uber.com",
-    className: "h-6 sm:h-6 md:h-8"
-  }
-];
 
 // ============================================================================
 // UTILITY FUNCTIONS
@@ -105,24 +50,11 @@ const getPreviousIndex = (current: number, length: number): number => {
   return current === 0 ? length - 1 : current - 1;
 };
 
-/** Check if an image should be rendered (current, previous, or next) */
-const shouldRenderImage = (
-  index: number,
-  currentIndex: number,
-  totalImages: number
-): boolean => {
-  const isPrevious = index === getPreviousIndex(currentIndex, totalImages);
-  const isNext = index === getNextIndex(currentIndex, totalImages);
-  return index === currentIndex || isPrevious || isNext;
-};
-
 // ============================================================================
 // MAIN COMPONENT
 // ============================================================================
 
 export const HeroSection = () => {
-  const { isDark } = useTheme();
-
   // ========================================
   // State Management
   // ========================================
@@ -135,16 +67,16 @@ export const HeroSection = () => {
     offset: 0,
   });
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [mobileCarouselHeight, setMobileCarouselHeight] = useState<number | null>(null);
+  const [videoDuration, setVideoDuration] = useState<number | null>(null);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
 
   // ========================================
   // Computed Values
   // ========================================
 
-  /** Select appropriate image set based on viewport */
-  const carouselImages = useMemo(
-    () => (isMobile ? MOBILE_HERO_IMAGES : HERO_IMAGES),
-    [isMobile]
-  );
+  /** Use same images for all viewports */
+  const carouselImages = HERO_IMAGES;
 
   // ========================================
   // Navigation Handlers
@@ -156,6 +88,14 @@ export const HeroSection = () => {
     setCurrentImageIndex(index);
     setTimeout(() => setIsTransitioning(false), CAROUSEL_CONFIG.TRANSITION_DURATION);
   }, []);
+
+  /** Handle indicator clicks to navigate to specific slide */
+  const handleIndicatorClick = useCallback(
+    (index: number) => {
+      navigateToIndex(index);
+    },
+    [navigateToIndex]
+  );
 
   /** Handle swipe completion and determine navigation direction */
   const handleSwipeEnd = useCallback(() => {
@@ -216,12 +156,72 @@ export const HeroSection = () => {
   useEffect(() => {
     if (dragState.isDragging) return;
 
+    const currentImage = carouselImages[currentImageIndex];
+    const isVideo = currentImage?.type === 'video';
+
+    // Use video duration if available, otherwise use default interval
+    const delay = isVideo && videoDuration
+      ? videoDuration * 1000 // Convert to milliseconds
+      : CAROUSEL_CONFIG.AUTO_CYCLE_INTERVAL;
+
     const interval = setInterval(() => {
       navigateToIndex(getNextIndex(currentImageIndex, carouselImages.length));
-    }, CAROUSEL_CONFIG.AUTO_CYCLE_INTERVAL);
+    }, delay);
 
     return () => clearInterval(interval);
-  }, [carouselImages.length, dragState.isDragging, currentImageIndex, navigateToIndex]);
+  }, [carouselImages, carouselImages.length, dragState.isDragging, currentImageIndex, navigateToIndex, videoDuration]);
+
+  /** Calculate dynamic carousel height for mobile based on widest image */
+  useEffect(() => {
+    if (!isMobile) {
+      setMobileCarouselHeight(null);
+      return;
+    }
+
+    const calculateHeight = () => {
+      // Get container width (accounting for page padding)
+      const container = document.querySelector('.container');
+      if (!container) return;
+
+      const containerWidth = container.clientWidth;
+      // Account for carousel padding (p-2 on mobile = 8px each side) and border (1px each side)
+      const availableWidth = containerWidth - 16 - 2;
+
+      // Load all base images and find the widest aspect ratio
+      const imagePromises = HERO_IMAGES.map((img) => {
+        return new Promise<number>((resolve) => {
+          const image = new Image();
+          image.onload = () => {
+            const aspectRatio = image.naturalWidth / image.naturalHeight;
+            resolve(aspectRatio);
+          };
+          image.onerror = () => resolve(16 / 9); // Fallback aspect ratio
+          image.src = img.src;
+        });
+      });
+
+      Promise.all(imagePromises).then((aspectRatios) => {
+        // Find the widest aspect ratio (largest value = needs most height relative to width)
+        const widestAspectRatio = Math.max(...aspectRatios);
+        // Calculate height based on available width and widest aspect ratio
+        const calculatedHeight = availableWidth / widestAspectRatio;
+        // Add padding back (8px top + 8px bottom)
+        const totalHeight = calculatedHeight + 16;
+        setMobileCarouselHeight(totalHeight);
+      });
+    };
+
+    calculateHeight();
+
+    // Recalculate on window resize
+    const handleResize = () => {
+      const timeoutId = setTimeout(calculateHeight, 150);
+      return () => clearTimeout(timeoutId);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [isMobile]);
 
   // ========================================
   // Scroll Navigation
@@ -245,24 +245,30 @@ export const HeroSection = () => {
   };
 
   return (
-    <section className="relative flex flex-col bg-background pt-20 sm:pt-24 md:pt-20 lg:pt-20 pb-[60px]">
+    <>
+      <section className="relative flex flex-col bg-background pt-20 sm:pt-24 md:pt-20 lg:pt-20 pb-4 sm:pb-6 md:pb-6">
       {/* Main Hero Content */}
-      <div className="container mx-auto px-6 sm:px-8 md:px-12 lg:px-16 xl:px-20 py-2 sm:py-4 md:py-4 lg:py-2">
+      <div className="container mx-auto px-6 sm:px-8 md:px-12 lg:px-16 xl:px-20 py-0 sm:py-2 md:py-4 lg:py-2">
         <div className="max-w-7xl mx-auto">
           {/* Top Row: Text and Kepler */}
           <div className="md:grid md:grid-cols-2 md:gap-12 lg:gap-16 xl:gap-20">
             {/* Text Content */}
-            <div className="text-center md:text-left mb-2 md:mb-0 md:flex md:flex-col md:justify-center">
+            <div className="text-center md:text-left mb-2 sm:mb-3 md:mb-0 md:flex md:flex-col md:justify-center">
+              <div>
               <div className="tech-mono mb-3 sm:mb-4 text-sm">
-                THEATRE / HUMAN-AI COLLABORATION
+              <span className="text-black">&nbsp;AI Co-scientist</span> by FYDY
               </div>
-              <h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-3 sm:mb-6 tracking-tight leading-tight" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif' }}>
-                <span className="font-bold whitespace-nowrap">AI for Discovery</span><br />
-                <span className="font-normal text-primary relative whitespace-nowrap">& Experimentation</span>
+              <h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-3 sm:mb-6 tracking-tight leading-tight">
+                <span className="font-bold whitespace-nowrap">
+                  AI for Discovery
+                </span><br />
+                <span className="font-normal text-primary relative whitespace-nowrap">
+                  & Experimentation
+                </span>
               </h1>
               
-              <p className="text-lg md:text-lg lg:text-[19px] mb-3 sm:mb-6 md:mb-8 max-w-xl md:max-w-none mx-auto md:mx-0 px-2 sm:px-0 whitespace-pre-line text-muted-foreground" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif', fontWeight: 400, lineHeight: 1.6 }}>
-                Towards continual learning for research and validation loops.
+              <p className="text-lg md:text-lg lg:text-[19px] mb-3 sm:mb-6 md:mb-8 max-w-xl md:max-w-none mx-auto md:mx-0 px-2 sm:px-0 whitespace-pre-line text-muted-foreground" style={{ fontWeight: 400, lineHeight: 1.6 }}>
+                Scaling cognition for research and validation loops.
               </p>
 
               <div className="flex flex-col gap-3 sm:gap-4 justify-center md:justify-start items-center md:items-start">
@@ -276,10 +282,11 @@ export const HeroSection = () => {
                   <span className="text-xl group-hover:translate-x-1 transition-transform duration-300">→</span>
                 </button>
               </div>
+              </div>
             </div>
 
-            {/* Kepler's Law Visualization - Right side on desktop, below text on mobile */}
-            <div className="flex justify-center items-center mb-4 md:mb-0">
+            {/* Kepler's Law Visualization - Hidden on mobile, visible on desktop */}
+            <div className="hidden md:flex justify-center items-center mb-4 md:mb-0">
               <div className="w-full max-w-sm md:max-w-md xl:max-w-lg 2xl:max-w-lg h-[400px] md:h-[500px]">
                 <KeplerOrbit />
               </div>
@@ -287,13 +294,20 @@ export const HeroSection = () => {
           </div>
 
           {/* Image Carousel */}
-          <div className="flex flex-col gap-4 mt-8">
+          <div className="flex flex-col gap-4 mt-4 md:mt-8">
             {/* Carousel container - responsive height and cropping */}
             <div
               className="relative w-full rounded-lg border border-border bg-background/50
                          p-2 sm:p-3 md:p-4 lg:p-5
-                         h-[500px] sm:h-[400px] md:h-[500px] lg:h-[600px]
+                         md:h-[500px] lg:h-[600px]
                          overflow-hidden touch-pan-y cursor-grab active:cursor-grabbing select-none"
+              style={{
+                height: isMobile && mobileCarouselHeight
+                  ? `${mobileCarouselHeight}px`
+                  : isMobile
+                    ? '280px'
+                    : undefined
+              }}
               onTouchStart={onTouchStart}
               onTouchMove={onTouchMove}
               onTouchEnd={onTouchEnd}
@@ -302,114 +316,76 @@ export const HeroSection = () => {
               onMouseUp={onMouseUp}
               onMouseLeave={onMouseLeave}
             >
-              {carouselImages.map((image, index) => {
-                const isActive = index === currentImageIndex;
-
-                // Only render current and adjacent images for performance
-                if (!shouldRenderImage(index, currentImageIndex, carouselImages.length)) {
-                  return null;
-                }
-
-                // Calculate opacity with drag feedback
-                let opacity = isActive ? 1 : 0;
-                if (dragState.isDragging && isActive) {
-                  const swipeProgress = Math.abs(dragState.offset) / 100;
-                  opacity = Math.max(0, 1 - swipeProgress);
-                }
-
-                // Determine image positioning (mobile split view)
-                const objectPosition =
-                  isMobile && image.position
-                    ? `object-${image.position}`
-                    : 'object-center';
-
-                return (
+              <div
+                className="relative w-full h-full flex"
+                style={{
+                  transform: `translateX(calc(-${currentImageIndex * 100}% + ${dragState.isDragging ? dragState.offset : 0}px))`,
+                  transition: dragState.isDragging ? 'none' : isTransitioning ? 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)' : 'transform 0.5s ease-out'
+                }}
+              >
+                {carouselImages.map((image, index) => (
                   <div
                     key={index}
-                    className="absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out"
-                    style={{
-                      opacity,
-                      pointerEvents: isActive ? 'auto' : 'none',
-                      transform: 'translateZ(0)', // GPU acceleration
-                      willChange: isActive || isTransitioning ? 'opacity' : 'auto',
-                    }}
+                    className="flex-shrink-0 w-full h-full"
                   >
-                    <img
-                      src={image.src}
-                      alt={image.alt}
-                      className={`w-full h-full object-cover sm:object-contain ${objectPosition}`}
-                      draggable={false}
-                      loading={isActive ? 'eager' : 'lazy'}
-                    />
+                    {image.type === 'video' ? (
+                      <video
+                        ref={(el) => {
+                          if (index === currentImageIndex) {
+                            videoRef.current = el;
+                          }
+                        }}
+                        src={image.src}
+                        className="w-full h-full object-contain object-center"
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        onLoadedMetadata={(e) => {
+                          const video = e.currentTarget;
+                          setVideoDuration(video.duration);
+                        }}
+                      />
+                    ) : (
+                      <img
+                        src={image.src}
+                        alt={image.alt}
+                        className="w-full h-full object-contain object-center"
+                        draggable={false}
+                      />
+                    )}
                   </div>
-                );
-              })}
+                ))}
+              </div>
             </div>
 
             {/* Navigation indicators */}
             <div className="flex gap-2 sm:gap-3 justify-center" role="tablist" aria-label="Carousel navigation">
-              {carouselImages.map((image, index) => (
-                <button
-                  key={index}
-                  onClick={() => navigateToIndex(index)}
-                  className={`h-1.5 sm:h-2 rounded-full transition-all duration-500 ease-in-out ${
-                    index === currentImageIndex
-                      ? 'w-8 sm:w-10 bg-primary'
-                      : 'w-1.5 sm:w-2 bg-muted-foreground/30 hover:bg-muted-foreground/50'
-                  }`}
-                  role="tab"
-                  aria-selected={index === currentImageIndex}
-                  aria-label={`View ${image.alt}`}
-                />
-              ))}
+              {carouselImages.map((image, index) => {
+                const isActive = currentImageIndex === index;
+
+                return (
+                  <button
+                    key={index}
+                    onClick={() => handleIndicatorClick(index)}
+                    className={`h-1.5 sm:h-2 rounded-full transition-all duration-500 ease-in-out ${
+                      isActive
+                        ? 'w-8 sm:w-10 bg-primary'
+                        : 'w-1.5 sm:w-2 bg-muted-foreground/30 hover:bg-muted-foreground/50'
+                    }`}
+                    role="tab"
+                    aria-selected={isActive}
+                    aria-label={`View ${image.alt}`}
+                  />
+                );
+              })}
             </div>
           </div>
         </div>
       </div>
 
-      {/* Integrated Trust Section */}
-      <div className="pt-8 sm:pt-10 md:pt-12 pb-4 sm:pb-6 md:pb-10">
-        <div className="container mx-auto px-6 sm:px-8 md:px-12 lg:px-16 xl:px-20">
-          <div className="max-w-7xl mx-auto text-center">
-            <div className="tech-mono mb-4 sm:mb-6 text-sm text-muted-foreground">
-              {/* Mobile version - two lines */}
-              <div className="block sm:hidden">
-                <div>EARLY ADOPTERS FROM</div>
-              </div>
-              {/* Desktop version - single line */}
-              <div className="hidden sm:block">
-                EARLY ADOPTERS FROM
-              </div>
-            </div>
-            
-            <div className="flex flex-wrap justify-center items-center gap-10 sm:gap-14 md:gap-20">
-              {companies.map((company, index) => (
-                <a 
-                  key={index} 
-                  href={company.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center hover:scale-105 transition-transform duration-300 cursor-pointer"
-                >
-                  <img 
-                    src={isDark && company.darkLogo ? company.darkLogo : company.logo}
-                    alt={company.alt}
-                    className={`w-auto object-contain transition-all duration-300 ${
-                      company.className || "h-8 sm:h-10 md:h-12"
-                    }`}
-                    onError={(e) => {
-                      // Fallback to company name if logo fails to load
-                      const target = e.target as HTMLImageElement;
-                      target.style.display = 'none';
-                      target.parentElement!.innerHTML = `<span class="text-xl sm:text-2xl font-bold text-muted-foreground/80">${company.name}</span>`;
-                    }}
-                  />
-                </a>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
+      <TrustSection />
     </section>
+    </>
   );
 };

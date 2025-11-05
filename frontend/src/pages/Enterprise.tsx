@@ -6,7 +6,7 @@ import { useState } from 'react';
 const Enterprise = () => {
   const [activeTab, setActiveTab] = useState(0);
 
-  const theatreWorkflow = [
+  const TheaterWorkflow = [
     {
       icon: Search,
       title: "Explore",
@@ -260,7 +260,7 @@ const Enterprise = () => {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-                {theatreWorkflow.map((stage, index) => (
+                {TheaterWorkflow.map((stage, index) => (
                   <div key={index} className="group bg-card/50 backdrop-blur border border-border/50 rounded-xl p-8 hover:shadow-xl hover:border-primary/30 transition-all duration-300">
                     <div className="flex items-start gap-4">
                       <div className="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-primary/15 to-primary/5 rounded-xl flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
@@ -368,7 +368,7 @@ const Enterprise = () => {
             {/* CTA Section */}
             <div className="text-center max-w-5xl mx-auto mb-16">
               <h2 className="text-5xl sm:text-6xl font-bold mb-8 text-foreground leading-tight">
-                Ready to Rethink<br />Discovery & Engineering?
+                Ready to Rethink<br />Discovery & Experimentation?
               </h2>
               <p className="text-xl sm:text-2xl text-muted-foreground mb-12 leading-relaxed max-w-4xl mx-auto">
                 We're working closely with select engineering teams in alpha. Let's discuss your needs, deployment requirements, and how Theater fits your workflow.

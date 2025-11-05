@@ -157,12 +157,18 @@ export const HypothesisEvolutionSection = () => {
           <div className="md:grid md:grid-cols-2 items-center">
             {/* Text Content - Left Side */}
             <div className="mb-8 md:mb-0 md:px-4 lg:px-6 xl:px-8 flex flex-col justify-center">
-              <h2 className="text-lg sm:text-xl font-normal mb-6 tracking-tight leading-tight font-['Helvetica_Neue']">
-                Hypothesis evolution and experimentation
+              <h2 className="text-lg sm:text-xl font-medium mb-6">
+                Hypothesis evolution and experimentation.
               </h2>
-              <div className="space-y-4 text-lg sm:text-xl text-muted-foreground font-['Helvetica_Neue'] opacity-60">
+              <div className="space-y-4 text-base sm:text-lg text-muted-foreground opacity-70">
                 <p>
-                  Hypotheses evolve through simulated scientific debates across multiple validation stages—from initial review to deep verification, simulation, and observation.
+                Research advances through strong trial and error. Complex problems decompose into testable components. Failure refines the search space, success validates a path forward.
+                <br/>
+                <br/>
+                Proof construction operates similarly, through testing lemmas and tactics, where rigorous verification guiding intuition through uncharted territory.
+                <br/>
+                <br/>
+                Hypotheses evolve through experimental feedback, closing the gap between prediction and reality.
                 </p>
               </div>
             </div>

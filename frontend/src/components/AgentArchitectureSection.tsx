@@ -67,8 +67,26 @@ export const AgentArchitectureSection = () => {
       <div className="container mx-auto px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
           <div className="md:grid md:grid-cols-2 items-center">
+            {/* Text Content */}
+            <div className="mb-8 md:mb-0 md:px-4 lg:px-6 xl:px-8 flex flex-col justify-center md:order-2">
+              <h2 className="text-lg sm:text-xl font-medium mb-6">
+                Adaptive multiagent compute.
+              </h2>
+              <div className="space-y-4 text-base sm:text-lg text-muted-foreground opacity-70">
+                <p>
+                  We are significantly scaling test-time compute to reason, experiment and iterate as the system gathers more knowledge and feedback. The aim is to implement the scientific method as a computational infrastructure for anyone to use.
+                  <br/>
+                  <br/>
+                  Multiple agents pursue long-horizon tasks in parallel. Compute concentrates where progress is validated through autoformalization, data or grounded citations.
+                  <br/>
+                  <br/>
+                  The infrastructure monitors progress, reallocates compute to what's working, and scales the verification work that drives results.
+                </p>
+              </div>
+            </div>
+
             {/* Turing Machine Visualization */}
-            <div className="flex justify-center items-center order-2 md:order-1 md:px-4 lg:px-6 xl:px-8">
+            <div className="flex justify-center items-center md:px-4 lg:px-6 xl:px-8 md:order-1">
               <div className="relative w-full max-w-lg">
                 {/* Notebook paper texture */}
                 <div 
@@ -391,18 +409,6 @@ export const AgentArchitectureSection = () => {
                     </g>
                   </g>
                 </svg>
-              </div>
-            </div>
-
-            {/* Text Content */}
-            <div className="mb-8 md:mb-0 md:px-4 lg:px-6 xl:px-8 order-1 md:order-2 flex flex-col justify-center">
-              <h2 className="text-lg sm:text-xl font-normal mb-6 tracking-tight leading-tight font-['Helvetica_Neue']">
-                Scaling multiagent test-time compute
-              </h2>
-              <div className="space-y-4 text-lg sm:text-xl text-muted-foreground font-['Helvetica_Neue'] opacity-60">
-                <p>
-                  Specialized agents work in parallel—generation, reflection, ranking, evolution, and meta-review—orchestrating the scientific workflow through asynchronous task execution.
-                </p>
               </div>
             </div>
           </div>

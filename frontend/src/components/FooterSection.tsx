@@ -13,7 +13,7 @@ export const FooterSection = ({ showTopBorder = true }: FooterSectionProps) => {
           <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end space-y-8 sm:space-y-0">
             {/* Brand */}
             <div className="space-y-3 sm:space-y-4 text-center sm:text-left">
-              <h3 className="text-xl sm:text-2xl font-bold">Theatre</h3>
+              <h3 className="text-xl sm:text-2xl font-bold">Theater</h3>
               <p className="text-muted-foreground">
                 AI for Discovery & Experimentation
                 <br/>by Fuzzy Dynamics (FYDY)

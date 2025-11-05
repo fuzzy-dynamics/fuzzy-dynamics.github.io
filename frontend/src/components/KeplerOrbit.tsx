@@ -2,9 +2,7 @@ import { useEffect, useState, useRef } from 'react';
 
 export const KeplerOrbit = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
-  const [planetPos, setPlanetPos] = useState({ x: 0, y: 0 });
   const containerRef = useRef<HTMLDivElement>(null);
-  const svgRef = useRef<SVGSVGElement>(null);
   const targetProgressRef = useRef(0);
   const currentProgressRef = useRef(0);
   const animationFrameRef = useRef<number>();
@@ -41,26 +39,6 @@ export const KeplerOrbit = () => {
       setScrollProgress(progress);
       
       // Calculate planet position relative to container
-      if (containerRef.current && svgRef.current) {
-        const svgRect = svgRef.current.getBoundingClientRect();
-        const containerRect = containerRef.current.getBoundingClientRect();
-        const centerX = 200;
-        const centerY = 200;
-        const a = 140;
-        const b = 90;
-        const angle = progress * Math.PI * 2;
-        const planetX = centerX + a * Math.cos(angle);
-        const planetY = centerY + b * Math.sin(angle);
-        
-        // Convert SVG coordinates to container-relative coordinates
-        const scaleX = svgRect.width / 400;
-        const scaleY = svgRect.height / 400;
-        const relativeX = (svgRect.left - containerRect.left) + planetX * scaleX;
-        const relativeY = (svgRect.top - containerRect.top) + planetY * scaleY;
-        
-        setPlanetPos({ x: relativeX, y: relativeY });
-      }
-      
       animationFrameRef.current = requestAnimationFrame(animate);
     };
 
@@ -125,34 +103,7 @@ export const KeplerOrbit = () => {
 
   return (
     <div ref={containerRef} className="relative w-full h-full flex items-center justify-center">
-      {/* Crosshair lines contained within component */}
-      {/* Horizontal line */}
-      <div
-        className="absolute pointer-events-none z-10"
-        style={{
-          left: 0,
-          right: 0,
-          top: `${planetPos.y}px`,
-          height: '1px',
-          backgroundColor: 'hsl(var(--primary))',
-          opacity: 0.3,
-        }}
-      />
-      {/* Vertical line */}
-      <div
-        className="absolute pointer-events-none z-10"
-        style={{
-          top: 0,
-          bottom: 0,
-          left: `${planetPos.x}px`,
-          width: '1px',
-          backgroundColor: 'hsl(var(--primary))',
-          opacity: 0.3,
-        }}
-      />
-      
-        <svg
-          ref={svgRef}
+      <svg
           viewBox="0 0 400 400"
           className="w-full h-full"
           style={{ maxWidth: '500px', maxHeight: '500px' }}
@@ -169,6 +120,28 @@ export const KeplerOrbit = () => {
           strokeDasharray="5 3"
           opacity="0.5"
           style={{ filter: 'blur(0.3px)' }}
+        />
+
+        {/* Crosshair lines tied to planet position */}
+        <line
+          x1={0}
+          y1={planetY}
+          x2={400}
+          y2={planetY}
+          stroke="hsl(var(--primary))"
+          strokeWidth={1}
+          opacity={0.3}
+          pointerEvents="none"
+        />
+        <line
+          x1={planetX}
+          y1={0}
+          x2={planetX}
+          y2={400}
+          stroke="hsl(var(--primary))"
+          strokeWidth={1}
+          opacity={0.3}
+          pointerEvents="none"
         />
 
         {/* Swept area (Kepler's law visualization) */}
@@ -313,4 +286,3 @@ export const KeplerOrbit = () => {
     </div>
   );
 };
-

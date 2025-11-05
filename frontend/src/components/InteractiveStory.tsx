@@ -39,7 +39,7 @@ export const InteractiveStory: React.FC = () => {
         body: (
           <p className="text-xl md:text-2xl leading-relaxed text-foreground/90">
             If you pull things apart to see how they work, if you learn by trying,
-            and you’d rather prototype than pontificate — Theatre is for you. A place to
+            and you’d rather prototype than pontificate — Theater is for you. A place to
             explore boldly, build deliberately, and keep your hands on the controls.
           </p>
         ),
@@ -89,7 +89,7 @@ export const InteractiveStory: React.FC = () => {
         title: 'Agents can act. You stay in command.',
         body: (
           <p className="text-xl md:text-2xl leading-relaxed text-foreground/90">
-            Theatre is built around
+            Theater is built around
             <span className="mx-1 inline rounded px-1 bg-[hsl(var(--accent)/0.15)] text-foreground">human agency</span>:
             rapid navigation, visual diffs, grounded claims, and principled refusals when evidence is thin.
             Less guessing, more verifying.
@@ -125,7 +125,7 @@ export const InteractiveStory: React.FC = () => {
         title: 'Intent up front. Code that follows.',
         body: (
           <p className="text-xl md:text-2xl leading-relaxed text-foreground/90">
-            Specs describe what and why; code projects how. Theatre keeps them in lockstep—so you can generate,
+            Specs describe what and why; code projects how. Theater keeps them in lockstep—so you can generate,
             update, and evaluate with confidence.
           </p>
         ),
@@ -140,7 +140,7 @@ export const InteractiveStory: React.FC = () => {
         body: (
           <div className="flex flex-col md:flex-row items-start md:items-center gap-4">
             <p className="text-2xl md:text-3xl leading-tight text-foreground/90 font-semibold">
-              This is Theatre.<br />
+              This is Theater.<br />
               <span className="font-normal">Start the show.</span>
             </p>
             <button

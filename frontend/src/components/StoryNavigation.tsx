@@ -17,7 +17,7 @@ type StoryNavigationProps = {
 export const StoryNavigation: React.FC<StoryNavigationProps> = ({ steps, activeStep, onStepClick }) => {
   return (
     <aside className="md:col-span-2 md:sticky md:top-1/2 md:-translate-y-1/2 h-fit md:pl-12 lg:pl-20 xl:pl-24 text-center md:text-left">
-      <div className="tech-mono mb-3 text-muted-foreground">THE THEATRE STORY</div>
+      <div className="tech-mono mb-3 text-muted-foreground">THE Theater STORY</div>
       <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight">
         Build boldly.
         <br />
