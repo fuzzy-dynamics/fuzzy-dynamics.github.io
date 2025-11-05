@@ -6,8 +6,8 @@ This shift is best seen via evolution of programming. Rollercoaster Tycoon was e
 
 Today, advancements like cloud, distributed systems, AI-assisted tooling help us skip even more of the grunt work and collaborate better. What took a single engineer years to plan, execute, debug and deploy is done much faster by these tools taking over repetitive tasks, helping collaboration and sharing context. The bottleneck is no longer syntax or implementation. Instead, it is clarity of specifications, correctness of design and quality of orchestration. We have decoupled problem solving from mechanics of programming. No longer do we need to know how to write BFS or configure CI/CD pipeline. We just need to know when and where to use which tools to construct our solutions.
 
-We have built Theatre for this world.
+We have built Theater for this world.
 
-Not simply as a coding platform but as a place to understand problems and craft solutions.  A place where developers can map out systems, visualize flows, and trace the ripple effects of a change before committing it. Theatre helps you coordinate code, APIs, Agents, services with clarity, reducing friction between idea and implementation.
+Not simply as a coding platform but as a place to understand problems and craft solutions. A place where developers can map out systems, visualize flows, and trace the ripple effects of a change before committing it. Theater helps you coordinate code, APIs, Agents, services with clarity, reducing friction between idea and implementation.
 
-It keeps the human in the loop. Not buried in repetitive tasks but operating as the orchestrator, as the overseer building the system. How? With fast feedback loops, safe sandboxing, intelligent diffing and smarter testing. Theatre lets you focus on the hard part: thinking clearly.
+It keeps the human in the loop. Not buried in repetitive tasks but operating as the orchestrator, as the overseer building the system. How? With fast feedback loops, safe sandboxing, intelligent diffing and smarter testing. Theater lets you focus on the hard part: thinking clearly.
