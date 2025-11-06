@@ -1,7 +1,7 @@
 import { useTheme } from '@/contexts/ThemeContext';
 import { useEffect, useState, useRef } from 'react';
 
-export const MemorySection = () => {
+export const Memory = () => {
   const { isDark } = useTheme();
   const [scrollProgress, setScrollProgress] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -148,7 +148,7 @@ export const MemorySection = () => {
 
                     if (currentSize <= 0) return null;
 
-                    // Generate irregular blob shape (hand-drawn organic)
+                    // Generate irregular blob shape (hand-drawn organic by Anvay)
                     const points = 12;
                     const angleStep = (Math.PI * 2) / points;
                     let blobPath = '';

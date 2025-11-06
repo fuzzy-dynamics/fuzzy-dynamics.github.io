@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from 'react';
 import { useTheme } from '@/contexts/ThemeContext';
 
-export const HypothesisEvolutionSection = () => {
+export const Hypothesis = () => {
   const { isDark } = useTheme();
   const [scrollProgress, setScrollProgress] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);

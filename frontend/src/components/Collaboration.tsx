@@ -84,7 +84,7 @@ const evolveGrid = (grid: Grid): Grid => {
   return newGrid;
 };
 
-export const SymbolicReasoningSection = () => {
+export const Collaboration = () => {
   const { isDark } = useTheme();
   const [scrollProgress, setScrollProgress] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -152,7 +152,7 @@ export const SymbolicReasoningSection = () => {
             {/* Text Content */}
             <div className="mb-8 md:mb-0 md:px-4 lg:px-6 xl:px-8 flex flex-col justify-center md:order-2">
               <h2 className="text-lg sm:text-xl font-medium mb-6">
-              Collaboration and observability.
+                Collaboration and observability.
               </h2>
               <div className="space-y-4 text-base sm:text-lg text-muted-foreground opacity-70">
                 <p>

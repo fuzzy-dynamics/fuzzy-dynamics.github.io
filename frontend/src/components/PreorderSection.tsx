@@ -139,7 +139,7 @@ export const PreorderSection = () => {
       <div className="container mx-auto px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 relative z-10">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal mb-8 sm:mb-12 leading-tight text-foreground">
-            Try Theater now.
+            Join Early Access.
           </h2>
 
           <div className="max-w-md mx-auto">

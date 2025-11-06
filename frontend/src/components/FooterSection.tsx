@@ -16,7 +16,7 @@ export const FooterSection = ({ showTopBorder = true }: FooterSectionProps) => {
               <h3 className="text-xl sm:text-2xl font-bold">Theater</h3>
               <p className="text-muted-foreground">
                 AI for Discovery & Experimentation
-                <br/>by Fuzzy Dynamics (FYDY)
+                <br/>by Fuzzy Dynamics (FYDY) Inc.
               </p>
             </div>
 

@@ -1,7 +1,7 @@
 import { useTheme } from '@/contexts/ThemeContext';
 import { useEffect, useRef, useState } from 'react';
 
-export const AgentArchitectureSection = () => {
+export const Compute = () => {
   const { isDark } = useTheme();
   const sectionRef = useRef<HTMLDivElement>(null);
   const [scrollProgress, setScrollProgress] = useState(0);

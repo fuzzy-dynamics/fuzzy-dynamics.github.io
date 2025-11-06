@@ -1,8 +1,8 @@
 import { HeroSection } from '@/components/HeroSection';
-import { MemorySection } from '@/components/MemorySection';
-import { AgentArchitectureSection } from '@/components/AgentArchitectureSection';
-import { HypothesisEvolutionSection } from '@/components/HypothesisEvolutionSection';
-import { SymbolicReasoningSection } from '@/components/SymbolicReasoningSection';
+import { Memory } from '@/components/Memory';
+import { Compute } from '@/components/Compute';
+import { Hypothesis } from '@/components/Hypothesis';
+import { Collaboration } from '@/components/Collaboration';
 import { PreorderSection } from '@/components/PreorderSection';
 import { InteractiveStory } from '@/components/InteractiveStory';
 import { FooterSection } from '@/components/FooterSection';
@@ -22,16 +22,16 @@ const Index = () => {
           
           <div className="grid grid-rows-4">
             <div className="border-b border-border">
-              <MemorySection />
+              <Memory />
             </div>
             <div className="border-b border-border">
-              <AgentArchitectureSection />
+              <Compute />
             </div>
             <div className="border-b border-border">
-              <HypothesisEvolutionSection />
+              <Hypothesis />
             </div>
             <div>
-              <SymbolicReasoningSection />
+              <Collaboration />
             </div>
           </div>
         </div>
