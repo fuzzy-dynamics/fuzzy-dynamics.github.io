@@ -1,4 +1,5 @@
 import { HeroSection } from '@/components/HeroSection';
+import { CapabilitiesSection } from '@/components/CapabilitiesSection';
 import { Memory } from '@/components/Memory';
 import { Compute } from '@/components/Compute';
 import { Hypothesis } from '@/components/Hypothesis';
@@ -13,7 +14,8 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <TopBar />
       <HeroSection />
-      
+      <CapabilitiesSection />
+
       {/* Grid Layout for Feature Sections */}
       <div className="container mx-auto px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 py-4 sm:py-6 md:py-8">
         <div className="max-w-7xl mx-auto border border-border relative">

@@ -245,7 +245,6 @@ export const HeroSection = () => {
   };
 
   return (
-    <>
       <section className="relative flex flex-col bg-background pt-20 sm:pt-24 md:pt-20 lg:pt-20 pb-4 sm:pb-6 md:pb-6">
       {/* Main Hero Content */}
       <div className="container mx-auto px-6 sm:px-8 md:px-12 lg:px-16 xl:px-20 py-0 sm:py-2 md:py-4 lg:py-2">
@@ -386,6 +385,5 @@ export const HeroSection = () => {
 
       <TrustSection />
     </section>
-    </>
   );
 };

@@ -46,7 +46,7 @@ const COMPANIES: CompanyLogo[] = [
 
 export const TrustSection = () => {
   return (
-    <div className="pt-6 sm:pt-8 md:pt-10 pb-2 sm:pb-4 md:pb-6">
+    <div className="pt-6 sm:pt-8 md:pt-10 pb-4 sm:pb-6 md:pb-6">
       <div className="container mx-auto px-6 sm:px-8 md:px-12 lg:px-16 xl:px-20">
         <div className="max-w-7xl mx-auto text-center">
           <div className="tech-mono mb-4 sm:mb-6 text-sm text-muted-foreground">
