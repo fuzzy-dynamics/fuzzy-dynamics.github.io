@@ -69,6 +69,7 @@ export const HeroSection = () => {
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [mobileCarouselHeight, setMobileCarouselHeight] = useState<number | null>(null);
   const [videoDuration, setVideoDuration] = useState<number | null>(null);
+  const [hasUserInteracted, setHasUserInteracted] = useState(false);
   const videoRef = useRef<HTMLVideoElement | null>(null);
 
   // ========================================
@@ -92,6 +93,7 @@ export const HeroSection = () => {
   /** Handle indicator clicks to navigate to specific slide */
   const handleIndicatorClick = useCallback(
     (index: number) => {
+      setHasUserInteracted(true);
       navigateToIndex(index);
     },
     [navigateToIndex]
@@ -120,6 +122,7 @@ export const HeroSection = () => {
   // ========================================
 
   const onDragStart = useCallback((clientX: number) => {
+    setHasUserInteracted(true);
     setDragState({ isDragging: true, startX: clientX, offset: 0 });
   }, []);
 
@@ -154,7 +157,8 @@ export const HeroSection = () => {
 
   /** Auto-cycle through carousel images */
   useEffect(() => {
-    if (dragState.isDragging) return;
+    // Pause auto-cycle if user has interacted or is currently dragging
+    if (hasUserInteracted || dragState.isDragging) return;
 
     const currentImage = carouselImages[currentImageIndex];
     const isVideo = currentImage?.type === 'video';
@@ -169,7 +173,7 @@ export const HeroSection = () => {
     }, delay);
 
     return () => clearInterval(interval);
-  }, [carouselImages, carouselImages.length, dragState.isDragging, currentImageIndex, navigateToIndex, videoDuration]);
+  }, [carouselImages, carouselImages.length, dragState.isDragging, currentImageIndex, navigateToIndex, videoDuration, hasUserInteracted]);
 
   /** Calculate dynamic carousel height for mobile based on widest image */
   useEffect(() => {

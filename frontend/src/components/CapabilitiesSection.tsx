@@ -1,9 +1,9 @@
 export const CapabilitiesSection = () => {
   const capabilities = [
-    "Searches literature, surfaces ideas.",
-    "Grounds your math into verifiable programs.",
-    "Runs experiments. Analyses data. Loops.",
-    "Remembers and works like a real-time collaborator."
+    "Searches your uploads and external papers or databases.",
+    "Explores math experimentally, grounds in formal verification.",
+    "Runs experiments. Analyzes data. Iterates adaptively.",
+    "Surfaces connections unprompted, remembers everything."
   ];
 
   return (
