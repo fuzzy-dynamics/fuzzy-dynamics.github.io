@@ -16,7 +16,7 @@ export const FooterSection = ({ showTopBorder = true }: FooterSectionProps) => {
               <h3 className="text-xl sm:text-2xl font-bold">Theater</h3>
               <p className="text-muted-foreground">
                 AI for Discovery & Experimentation
-                <br/>by Fuzzy Dynamics (FYDY) Inc.
+                {/* <br/>by FYDY */}
               </p>
             </div>
 
@@ -55,7 +55,7 @@ export const FooterSection = ({ showTopBorder = true }: FooterSectionProps) => {
               </a>
             </div>
             <div className="text-center sm:text-right">
-              © 2025 Fuzzy Dynamics Inc.
+              © 2025 FYDY
             </div>
           </div>
         </div>
