@@ -259,7 +259,7 @@ export const HeroSection = () => {
             <div className="text-center md:text-left mb-2 sm:mb-3 md:mb-0 md:flex md:flex-col md:justify-center">
               <div>
               <div className="tech-mono mb-3 sm:mb-4 text-sm">
-              <span className="text-black">&nbsp;AI Co-scientist</span> by FYDY
+              <span className="text-black">&nbsp;Research Studio and AI Co-scientist</span> by FYDY
               </div>
               <h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-3 sm:mb-6 tracking-tight leading-tight">
                 <span className="font-bold whitespace-nowrap">
