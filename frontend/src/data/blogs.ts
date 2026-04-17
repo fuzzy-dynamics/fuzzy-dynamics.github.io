@@ -14,6 +14,6 @@ export const blogPosts: BlogPost[] = [
     author: "Shivansh Subramanian",
     readTime: "3 minutes read",
     excerpt: "We are launching Theater, a better way to make good new things.",
-    publishedAt: "2025-08-04",
+    publishedAt: "2026-08-04",
   }
 ];

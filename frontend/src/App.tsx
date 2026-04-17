@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import Index from "./pages/Index";
+import FuzzyDynamics from "./pages/FuzzyDynamics";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import Pricing from "./pages/Pricing";
@@ -23,7 +24,8 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Index />} />
+            <Route path="/" element={<FuzzyDynamics />} />
+            <Route path="/openscientist" element={<Index />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:id" element={<BlogPost />} />
             <Route path="/pricing" element={<Pricing />} />

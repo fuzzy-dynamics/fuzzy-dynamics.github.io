@@ -13,19 +13,15 @@ export const FooterSection = ({ showTopBorder = true }: FooterSectionProps) => {
           <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end space-y-8 sm:space-y-0">
             {/* Brand */}
             <div className="space-y-3 sm:space-y-4 text-center sm:text-left">
-              <h3 className="text-xl sm:text-2xl font-bold">Theater</h3>
+              <h3 className="text-xl sm:text-2xl font-bold font-serif">OpenScientist</h3>
               <p className="text-muted-foreground">
                 AI for Discovery & Experimentation
                 {/* <br/>by FYDY */}
               </p>
             </div>
 
-            {/* Privacy, Terms & Research Links */}
+            {/* Privacy & Terms Links */}
             <div className="flex flex-col items-center sm:items-end gap-2">
-              <a href="/research" className="text-sm text-muted-foreground hover:text-foreground hover:underline inline-flex items-center gap-1">
-                Research
-                <ExternalLink size={14} />
-              </a>
               <a href="/privacy" className="text-sm text-muted-foreground hover:text-foreground hover:underline inline-flex items-center gap-1">
                 Privacy and Security
                 <ExternalLink size={14} />
@@ -55,7 +51,7 @@ export const FooterSection = ({ showTopBorder = true }: FooterSectionProps) => {
               </a>
             </div>
             <div className="text-center sm:text-right">
-              © 2025 FYDY
+              © 2026 FYDY
             </div>
           </div>
         </div>

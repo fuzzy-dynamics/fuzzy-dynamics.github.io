@@ -2,6 +2,7 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
+import octopiLogo from "@/assets/octopi.svg";
 
 export const TopBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -42,13 +43,13 @@ export const TopBar = () => {
     // Close mobile menu if open
     setIsMenuOpen(false);
     
-    // Check if we're already on the home page
-    if (location.pathname === '/') {
-      // We're on the home page, scroll directly to preorder section
+    // Check if we're already on the OpenScientist page
+    if (location.pathname === '/openscientist') {
+      // We're on the OpenScientist page, scroll directly to preorder section
       scrollToPreorderSection();
     } else {
-      // We're on another page, navigate to home page first
-      navigate('/');
+      // We're on another page, navigate to OpenScientist page first
+      navigate('/openscientist');
       
       // Wait a bit for navigation to complete, then scroll to preorder section
       setTimeout(() => {
@@ -62,9 +63,9 @@ export const TopBar = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 py-3 sm:py-4">
         <div className="flex items-center justify-between gap-4 sm:gap-6 lg:gap-8 xl:gap-12">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 sm:gap-2.5 flex-shrink-0" onClick={handleNavigation}>
-            <img src="/logo.svg" alt="Theater Logo" className="w-7 h-7 sm:w-8 sm:h-8 lg:w-7 lg:h-7" />
-            <span className="text-lg sm:text-xl lg:text-[22px] xl:text-2xl font-medium text-foreground whitespace-nowrap">Theater</span>
+          <Link to="/openscientist" className="flex items-center gap-2 sm:gap-2.5 flex-shrink-0" onClick={handleNavigation}>
+            <img src={octopiLogo} alt="OpenScientist Logo" className="w-10 h-10 sm:w-12 sm:h-12 lg:w-12 lg:h-12" />
+            <span className="text-lg sm:text-xl lg:text-[22px] xl:text-2xl font-medium text-foreground whitespace-nowrap font-serif">OpenScientist</span>
           </Link>
 
           {/* Desktop Navigation */}

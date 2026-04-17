@@ -22,10 +22,10 @@ interface CarouselImage {
 
 /** Carousel images - same for both desktop and mobile */
 const HERO_IMAGES: CarouselImage[] = [
-  { src: demo2, alt: 'Theater visualization - implementation view' },
-  { src: demo3, alt: 'Theater visualization - synthesis workspace' },
-  { src: demo1, alt: 'Theater visualization - demo', type: 'video' },
-  { src: demo4, alt: 'Theater visualization - analysis view' }
+  { src: demo2, alt: 'OpenScientist visualization - implementation view' },
+  { src: demo3, alt: 'OpenScientist visualization - synthesis workspace' },
+  { src: demo1, alt: 'OpenScientist visualization - demo', type: 'video' },
+  { src: demo4, alt: 'OpenScientist visualization - analysis view' }
 ];
 
 /** Carousel timing and behavior configuration */

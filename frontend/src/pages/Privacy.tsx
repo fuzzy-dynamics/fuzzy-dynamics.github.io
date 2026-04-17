@@ -24,7 +24,7 @@ const Privacy = () => {
                 Privacy & Security
               </h1>
               <div className="text-sm text-muted-foreground">
-                Last updated: October 2025
+                Last updated: October 2026
               </div>
             </div>
 

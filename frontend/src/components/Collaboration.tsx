@@ -159,7 +159,7 @@ export const Collaboration = () => {
                   We believe that meaningful progress in science and engineering requires deeper context and tight feedback loops between researchers and AI.
                   <br/>
                   <br/>
-                  Theater works alongside you. From searching through literature and surfacing new approaches to completing partial formulations and adding citations.
+                  <span className="font-serif">OpenScientist</span> works alongside you. From searching through literature and surfacing new approaches to completing partial formulations and adding citations.
                   <br/>
                   <br/>
                   This also generates massive amounts of semistructured data which you can navigate and query efficiently with built-in observability.
