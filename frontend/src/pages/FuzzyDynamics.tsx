@@ -23,7 +23,7 @@ const FuzzyDynamics = () => {
           <div className="flex justify-center">
             <Link
               to="/openscientist"
-              className="inline-flex items-center gap-3 rounded-full hover:bg-muted transition-colors pl-2 pr-5 py-2"
+              className="inline-flex items-center gap-3 rounded-full bg-muted/40 hover:bg-muted transition-colors pl-2 pr-5 py-2"
             >
               <span className="rounded-full bg-muted px-3 py-1 text-xs font-medium tracking-wide">
                 NEW
@@ -38,7 +38,7 @@ const FuzzyDynamics = () => {
 
           {/* Big Title */}
           <h1
-            className="mt-10 sm:mt-14 text-center text-muted-foreground/50 font-thin uppercase leading-[1.05] tracking-[-0.01em] text-[8vw] sm:text-[7vw] md:text-[6vw] lg:text-[80px]"
+            className="mt-10 sm:mt-14 text-center text-muted-foreground/50 font-thin uppercase leading-[1.05] tracking-[-0.01em] text-[14vw] sm:text-[10vw] md:text-[7vw] lg:text-[80px]"
           >
             <span className="block">Machine</span>
             <span className="block">Cognition</span>
