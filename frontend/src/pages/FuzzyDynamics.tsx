@@ -36,8 +36,10 @@ const FuzzyDynamics = () => {
               </span>
               <span className="text-sm sm:text-base flex items-center gap-2">
                 We have launched
-                <img src={octopiLogo} alt="OpenScientist" className="w-5 h-5 sm:w-6 sm:h-6" />
-                <span className="font-serif">OpenScientist</span>
+                <span className="inline-flex items-center gap-0">
+                  <img src={octopiLogo} alt="OpenScientist" className="w-5 h-5 sm:w-6 sm:h-6" />
+                  <span className="font-serif">OpenScientist</span>
+                </span>
               </span>
             </Link>
           </div>
@@ -94,17 +96,16 @@ const FuzzyDynamics = () => {
               */}
 
               <p>
-                Our AI Research Studio{" "}
                 <Link
                   to="/openscientist"
                   className="underline decoration-muted-foreground/40 underline-offset-4 hover:decoration-foreground"
                 >
                   <span className="font-serif">OpenScientist</span>
                 </Link>
-                {" "}is now in private beta. It is the system we built to run our own research,
-                and the one we now rely on to read, plan, and run experiments. We are rolling it
-                out to a small group of labs and researchers who we believe will push it the
-                furthest.
+                , our AI Research Studio, is now in private beta. We built it to run our own
+                research, and now it is the system that we rely on to read, plan, and run
+                experiments. We are rolling it out to a small group of labs and researchers who
+                we believe will push it the furthest.
               </p>
             </div>
           </div>

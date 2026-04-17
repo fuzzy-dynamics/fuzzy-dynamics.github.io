@@ -258,9 +258,6 @@ export const HeroSection = () => {
             {/* Text Content */}
             <div className="text-center md:text-left mb-2 sm:mb-3 md:mb-0 md:flex md:flex-col md:justify-center">
               <div>
-              <div className="tech-mono mb-3 sm:mb-4 text-sm">
-              <span className="text-black">&nbsp;Research Studio and AI Co-scientist</span> by FYDY
-              </div>
               <h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-3 sm:mb-6 tracking-tight leading-tight">
                 <span className="font-bold whitespace-nowrap">
                   AI for Discovery
@@ -271,7 +268,7 @@ export const HeroSection = () => {
               </h1>
               
               <p className="text-lg md:text-lg lg:text-[19px] mb-3 sm:mb-6 md:mb-8 max-w-xl md:max-w-none mx-auto md:mx-0 px-2 sm:px-0 whitespace-pre-line text-muted-foreground" style={{ fontWeight: 400, lineHeight: 1.6 }}>
-                Scaling cognition for research and validation loops.
+                Democratizing Science.
               </p>
 
               <div className="flex flex-col gap-3 sm:gap-4 justify-center md:justify-start items-center md:items-start">

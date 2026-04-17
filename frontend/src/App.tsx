@@ -10,7 +10,6 @@ import FuzzyDynamics from "./pages/FuzzyDynamics";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import Pricing from "./pages/Pricing";
-import Enterprise from "./pages/Enterprise";
 import Research from "./pages/Research";
 import Privacy from "./pages/Privacy";
 import NotFound from "./pages/NotFound";
@@ -31,7 +30,6 @@ const App = () => (
               <Route path="/blog" element={<Blog />} />
               <Route path="/blog/:id" element={<BlogPost />} />
               <Route path="/pricing" element={<Pricing />} />
-              <Route path="/enterprise" element={<Enterprise />} />
               <Route path="/research" element={<Research />} />
               <Route path="/privacy" element={<Privacy />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

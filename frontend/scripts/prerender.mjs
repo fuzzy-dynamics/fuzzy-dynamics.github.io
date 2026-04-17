@@ -27,12 +27,6 @@ const routes = [
       "OpenScientist is an AI research studio for scientific discovery. Built by Fuzzy Dynamics to plan, read, and run experiments. Now in private beta.",
   },
   {
-    path: "/enterprise",
-    title: "Enterprise — Fuzzy Dynamics",
-    description:
-      "Fuzzy Dynamics for enterprise research teams. Deploy OpenScientist inside your organization.",
-  },
-  {
     path: "/research",
     title: "Research — Fuzzy Dynamics",
     description:
