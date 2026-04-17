@@ -8,10 +8,16 @@ import { PreorderSection } from '@/components/PreorderSection';
 import { InteractiveStory } from '@/components/InteractiveStory';
 import { FooterSection } from '@/components/FooterSection';
 import { TopBar } from '@/components/TopBar';
+import { Seo } from '@/components/Seo';
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
+      <Seo
+        title="OpenScientist — AI Research Studio by Fuzzy Dynamics"
+        description="OpenScientist is an AI research studio for scientific discovery. Built by Fuzzy Dynamics to plan, read, and run experiments. Now in private beta."
+        path="/openscientist"
+      />
       <TopBar />
       <HeroSection />
       <CapabilitiesSection />

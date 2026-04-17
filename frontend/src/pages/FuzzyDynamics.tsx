@@ -1,9 +1,15 @@
 import { Link } from "react-router-dom";
 import octopiLogo from "@/assets/octopi.svg";
+import { Seo } from "@/components/Seo";
 
 const FuzzyDynamics = () => {
   return (
     <div className="min-h-screen bg-white text-foreground">
+      <Seo
+        title="Fuzzy Dynamics — AI Research Lab for Machine Cognition"
+        description="Fuzzy Dynamics is a neo-frontier AI research lab working on machine cognition. Home of OpenScientist, an AI research studio now in private beta."
+        path="/"
+      />
       {/* Top Bar */}
       <div className="fixed top-0 left-0 right-0 z-50 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 py-3 sm:py-4">
