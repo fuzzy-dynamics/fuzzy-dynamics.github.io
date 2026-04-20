@@ -268,7 +268,7 @@ export const HeroSection = () => {
               </h1>
               
               <p className="text-lg md:text-lg lg:text-[19px] mb-3 sm:mb-6 md:mb-8 max-w-xl md:max-w-none mx-auto md:mx-0 px-2 sm:px-0 whitespace-pre-line text-muted-foreground" style={{ fontWeight: 400, lineHeight: 1.6 }}>
-                Democratizing Science.
+                Democratizing and accelerating science.
               </p>
 
               <div className="flex flex-col gap-3 sm:gap-4 justify-center md:justify-start items-center md:items-start">
