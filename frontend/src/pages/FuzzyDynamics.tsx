@@ -125,7 +125,7 @@ const FuzzyDynamics = () => {
                 furthest.
               </p>
               <p>
-                If you or your team is working on hard problems and want early
+                If you or your team are working on hard problems and want early
                 access to what we are building, we would like to hear from you
                 at{" "}
                 <a
@@ -287,7 +287,7 @@ const FuzzyDynamics = () => {
                     Strong systems experience matters more than ML pedigree. If
                     you have run multi-node jobs without crying, written kernels
                     you are proud of or shipped a serving stack that survived
-                    contact with users, we would like to hear from you.
+                    contact with users, we would love to hear from you.
                   </p>
                   <p>
                     <a
