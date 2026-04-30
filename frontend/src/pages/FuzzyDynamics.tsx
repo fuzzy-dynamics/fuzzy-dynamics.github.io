@@ -13,13 +13,13 @@ const FuzzyDynamics = () => {
       {/* Top Bar */}
       <div className="fixed top-0 left-0 right-0 z-50 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 py-3 sm:py-4">
-          <Link to="/" className="flex items-center gap-3 w-fit">
+          <Link to="/" className="flex items-center gap-4 w-fit">
             <img
               src="/logo.svg"
               alt="Fuzzy Dynamics Logo"
               className="w-4 h-4 sm:w-[18px] sm:h-[18px]"
             />
-            <span className="text-sm sm:text-base font-normal tracking-[-0.01em] whitespace-nowrap">
+            <span className="text-sm sm:text-base font-medium tracking-[0.05em] whitespace-nowrap text-foreground/70">
               Fuzzy Dynamics
             </span>
           </Link>
@@ -40,13 +40,13 @@ const FuzzyDynamics = () => {
               </span>
               <span className="text-sm sm:text-base flex items-center gap-2">
                 We have launched
-                <span className="inline-flex items-center gap-0">
+                <span className="inline-flex items-center gap-1.5 leading-none">
                   <img
                     src={octopiLogo}
                     alt="OpenScientist"
-                    className="w-5 h-5 sm:w-6 sm:h-6"
+                    className="w-5 h-5 sm:w-6 sm:h-6 shrink-0 translate-y-[1px] sm:translate-y-[2px]"
                   />
-                  <span className="font-serif">OpenScientist</span>
+                  <span className="font-serif leading-none">OpenScientist</span>
                 </span>
               </span>
             </Link>
