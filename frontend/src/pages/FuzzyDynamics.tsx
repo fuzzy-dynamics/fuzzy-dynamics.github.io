@@ -4,7 +4,13 @@ import { Seo } from "@/components/Seo";
 
 const FuzzyDynamics = () => {
   return (
-    <div className="min-h-screen bg-white text-foreground">
+    <div
+      className="min-h-screen bg-white text-foreground"
+      style={{
+        fontFamily:
+          '"OpenAI Sans", "Söhne", "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif',
+      }}
+    >
       <Seo
         title="Fuzzy Dynamics (FYDY)"
         description="Fuzzy Dynamics is an AI research lab working on machine cognition. Home of OpenScientist, an AI research studio now in private beta."
@@ -63,7 +69,9 @@ const FuzzyDynamics = () => {
             <p>
               Fuzzy Dynamics is an AI research lab currently in stealth. We are
               making machines that{" "}
-              <strong>continually and efficiently learn from experience</strong>
+              <span className="underline decoration-muted-foreground/40 underline-offset-4">
+                continually and efficiently learn from experience
+              </span>
               . This is the paradigm shift we need for superintelligence.
             </p>
 
