@@ -13,13 +13,13 @@ const FuzzyDynamics = () => {
       {/* Top Bar */}
       <div className="fixed top-0 left-0 right-0 z-50 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 py-3 sm:py-4">
-          <Link to="/" className="flex items-center gap-4 w-fit">
+          <Link to="/" className="flex items-center gap-3 w-fit">
             <img
-              src="/logo.svg"
+              src="/logo-color.svg"
               alt="Fuzzy Dynamics Logo"
               className="w-4 h-4 sm:w-[18px] sm:h-[18px]"
             />
-            <span className="text-sm sm:text-base font-medium tracking-[0.05em] whitespace-nowrap text-foreground/70">
+            <span className="text-sm sm:text-base font-medium tracking-[0.025em] whitespace-nowrap text-foreground/70">
               Fuzzy Dynamics
             </span>
           </Link>
