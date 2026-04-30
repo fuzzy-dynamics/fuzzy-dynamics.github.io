@@ -1,31 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <rect width="1200" height="630" fill="#ffffff"/>
-
-  <!-- Logo centered at top, scaled to 240x240 -->
-  <g transform="translate(480, 100) scale(0.764)">
-    <path d="M157.002 65.499C223.359 11.5674 285.02 -13.8264 306.422 7.5752C327.823 28.9771 302.428 90.6361 248.496 156.993C302.431 223.352 327.828 285.015 306.426 306.417C285.024 327.819 223.362 302.422 157.003 248.488C157.002 248.489 157.001 248.49 157 248.49V65.4971L157.002 65.499Z" fill="#2F2F2F"/>
-    <path d="M156.999 65.499C90.6417 11.5674 28.9809 -13.8264 7.5791 7.5752C-13.8223 28.9771 11.5733 90.6361 65.5049 156.993C11.5702 223.352 -13.8269 285.015 7.5752 306.417C28.9774 327.819 90.6391 302.422 156.998 248.488C156.999 248.489 157 248.49 157.001 248.49V65.4971L156.999 65.499Z" fill="#E4E4E4"/>
-    <path d="M197 156.95C197 207.512 173 235.5 157 248.5C141.5 237 117 207.512 117 156.95C117 106.388 140.5 78.5 157 65.3999C176.5 82 197 106.388 197 156.95Z" fill="#676767"/>
-  </g>
-
-  <!-- Brand name -->
-  <text x="600" y="430" text-anchor="middle"
-        font-family="Helvetica, Arial, sans-serif"
-        font-size="72" font-weight="500" fill="#121212" letter-spacing="-1">
+  <text x="600" y="315" text-anchor="middle" dominant-baseline="middle"
+        font-family="Geist, &quot;OpenAI Sans&quot;, &quot;Söhne&quot;, ui-sans-serif, system-ui, -apple-system, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif"
+        font-size="120" font-weight="500" letter-spacing="3"
+        fill="hsl(240, 9%, 9%)" fill-opacity="0.7">
     Fuzzy Dynamics
-  </text>
-
-  <!-- Tagline -->
-  <text x="600" y="485" text-anchor="middle"
-        font-family="Georgia, 'Times New Roman', serif"
-        font-size="28" font-style="italic" fill="#555555">
-    An AI research lab working on machine cognition
-  </text>
-
-  <!-- Footer: domain -->
-  <text x="600" y="570" text-anchor="middle"
-        font-family="Helvetica, Arial, sans-serif"
-        font-size="22" font-weight="400" fill="#8a8a8a" letter-spacing="2">
-    fydy.ai
   </text>
 </svg>

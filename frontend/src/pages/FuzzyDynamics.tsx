@@ -12,20 +12,15 @@ const FuzzyDynamics = () => {
       }}
     >
       <Seo
-        title="Fuzzy Dynamics (FYDY)"
+        title="FYDY"
         description="Fuzzy Dynamics is an AI research lab working on machine cognition. Home of OpenScientist, an AI research studio now in private beta."
         path="/"
       />
       {/* Top Bar */}
       <div className="fixed top-0 left-0 right-0 z-50 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 py-3 sm:py-4">
-          <Link to="/" className="flex items-center gap-3 w-fit">
-            <img
-              src="/logo-color.svg"
-              alt="Fuzzy Dynamics Logo"
-              className="w-4 h-4 sm:w-[18px] sm:h-[18px]"
-            />
-            <span className="text-sm sm:text-base font-medium tracking-[0.025em] whitespace-nowrap text-foreground/70">
+          <Link to="/" className="w-fit">
+            <span className="text-[15px] sm:text-base font-semibold tracking-[0.05em] whitespace-nowrap text-foreground leading-none">
               Fuzzy Dynamics
             </span>
           </Link>
@@ -67,8 +62,15 @@ const FuzzyDynamics = () => {
           {/* Body */}
           <div className="mt-16 sm:mt-20 font-serif text-base sm:text-lg leading-relaxed text-foreground space-y-6">
             <p>
-              Fuzzy Dynamics is an AI research lab currently in stealth. We are
-              making machines that{" "}
+              Fuzzy Dynamics (
+              <a
+                href="https://fydy.ai"
+                className="underline decoration-muted-foreground/40 underline-offset-4 tracking-[0.02em] hover:decoration-foreground"
+              >
+                FYDY
+              </a>
+              ) is an AI research lab currently in stealth. We are making
+              machines that{" "}
               <span className="underline decoration-muted-foreground/40 underline-offset-4">
                 continually and efficiently learn from experience
               </span>
