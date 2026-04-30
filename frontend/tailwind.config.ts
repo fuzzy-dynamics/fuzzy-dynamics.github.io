@@ -75,6 +75,7 @@ export default {
 			},
 			fontFamily: {
 				'mono': ['JetBrains Mono', 'Menlo', 'Monaco', 'Consolas', 'monospace'],
+				'serif': ['"Source Serif 4"', 'Source Serif Pro', 'Iowan Old Style', 'Charter', 'Cambria', 'Georgia', 'serif'],
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
