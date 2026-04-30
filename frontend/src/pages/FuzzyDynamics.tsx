@@ -12,7 +12,7 @@ const FuzzyDynamics = () => {
       }}
     >
       <Seo
-        title="FYDY"
+        title="Fuzzy Dynamics"
         description="Fuzzy Dynamics is an AI research lab working on machine cognition. Home of OpenScientist, an AI research studio now in private beta."
         path="/"
       />
