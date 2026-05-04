@@ -15,18 +15,11 @@ const COMPANIES: CompanyLogo[] = [
     url: 'https://google.com',
   },
   {
-    name: 'Anthropic',
-    logo: '/logos/anthropic-logo.svg',
-    darkLogo: '/logos/anthropic-logo-dark.svg',
-    alt: 'Anthropic logo',
-    url: 'https://anthropic.com',
-    className: 'h-6 sm:h-8 md:h-10',
-  },
-  {
-    name: 'Salesforce',
-    logo: '/logos/salesforce-logo.svg',
-    alt: 'Salesforce logo',
-    url: 'https://salesforce.com',
+    name: 'MIT',
+    logo: '/logos/mit-logo.svg',
+    alt: 'MIT logo',
+    url: 'https://mit.edu',
+    className: 'h-9 sm:h-11 md:h-[3.25rem]',
   },
   {
     name: 'Microsoft',
@@ -35,12 +28,16 @@ const COMPANIES: CompanyLogo[] = [
     url: 'https://microsoft.com',
   },
   {
-    name: 'Uber',
-    logo: '/logos/uber-logo.svg',
-    darkLogo: '/logos/uber-logo-dark.svg',
-    alt: 'Uber logo',
-    url: 'https://uber.com',
-    className: 'h-6 sm:h-6 md:h-8',
+    name: 'Databricks',
+    logo: '/logos/databricks-logo.svg',
+    alt: 'Databricks logo',
+    url: 'https://databricks.com',
+  },
+  {
+    name: 'IIITH',
+    logo: '/logos/iiith-logo.png',
+    alt: 'IIIT Hyderabad logo',
+    url: 'https://iiit.ac.in',
   },
 ];
 
@@ -56,14 +53,14 @@ export const TrustSection = () => {
             <div className="hidden sm:block">EARLY ADOPTERS FROM</div>
           </div>
 
-          <div className="flex flex-wrap justify-center items-center gap-10 sm:gap-14 md:gap-20">
+          <div className="flex flex-wrap justify-center items-center gap-x-10 gap-y-6 sm:gap-x-14 sm:gap-y-8 md:grid md:grid-cols-5 md:gap-x-12 lg:gap-x-16">
             {COMPANIES.map((company, index) => (
               <a
                 key={company.name + index}
                 href={company.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center hover:scale-105 transition-transform duration-300 cursor-pointer"
+                className="flex items-center justify-center h-16 md:h-20 hover:scale-105 transition-transform duration-300 cursor-pointer"
               >
                 <img
                   src={company.logo}
