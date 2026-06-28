@@ -55,8 +55,8 @@ const FuzzyDynamics = () => {
 
           {/* Big Title */}
           <h1 className="mt-10 sm:mt-14 text-center text-muted-foreground/50 font-thin uppercase leading-[1.05] tracking-[-0.01em] text-[14vw] sm:text-[10vw] md:text-[7vw] lg:text-[80px]">
-            <span className="block">Machine</span>
-            <span className="block">Cognition</span>
+            <span className="block">Artifical</span>
+            <span className="block">Supeintelligence</span>
           </h1>
 
           {/* Body */}
@@ -72,7 +72,7 @@ const FuzzyDynamics = () => {
               ) is an AI research lab currently in stealth. We are making
               machines that{" "}
               <span className="underline decoration-muted-foreground/40 underline-offset-4">
-                continually and efficiently learn from experience
+                actively and efficiently learn from experience
               </span>
               . This is the paradigm shift we need for superintelligence.
             </p>
@@ -88,11 +88,11 @@ const FuzzyDynamics = () => {
             </p>
 
             <p>
-              LLMs and the era of scaling human data have been remarkable, but
-              they are not sufficient. Human data is finite and retrospective.
-              Language is a "thin slice of reality". There's no continual
-              learning, no efficient world models and no principled way to steer
-              agents in open worlds.
+              LLMs and the era of scaling data have been remarkable, but they
+              are not sufficient. Human data is finite and retrospective.
+              Language is far from a complete slice of reality. We don't have
+              continual learning, efficient world models or a principled way to
+              steer agents in open worlds.
             </p>
 
             <p>
