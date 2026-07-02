@@ -55,8 +55,8 @@ const FuzzyDynamics = () => {
 
           {/* Big Title */}
           <h1 className="mt-10 sm:mt-14 text-center text-muted-foreground/50 font-thin uppercase leading-[1.05] tracking-[-0.01em] text-[14vw] sm:text-[10vw] md:text-[7vw] lg:text-[80px]">
-            <span className="block">Artifical</span>
-            <span className="block">Supeintelligence</span>
+            <span className="block">Machine</span>
+            <span className="block">Cognition</span>
           </h1>
 
           {/* Body */}
@@ -67,10 +67,10 @@ const FuzzyDynamics = () => {
                 href="https://fydy.ai"
                 className="underline decoration-muted-foreground/40 underline-offset-4 tracking-[0.02em] hover:decoration-foreground"
               >
-                FYDY
+              FYDY
               </a>
-              ) is an AI research lab currently in stealth. We are making
-              machines that{" "}
+              ) is a research lab working towards Artificial Superintelligence, currently in stealth. We are making
+              cognitive machines that{" "}
               <span className="underline decoration-muted-foreground/40 underline-offset-4">
                 actively and efficiently learn from experience
               </span>
