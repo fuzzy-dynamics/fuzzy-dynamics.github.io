@@ -67,9 +67,9 @@ const FuzzyDynamics = () => {
                 href="https://fydy.ai"
                 className="underline decoration-muted-foreground/40 underline-offset-4 tracking-[0.02em] hover:decoration-foreground"
               >
-              FYDY
+                FYDY
               </a>
-              ) is a research lab working towards Artificial Superintelligence, currently in stealth. We are making
+              ) is a superintelligence lab, currently in stealth. We are making
               cognitive machines that{" "}
               <span className="underline decoration-muted-foreground/40 underline-offset-4">
                 actively and efficiently learn from experience
