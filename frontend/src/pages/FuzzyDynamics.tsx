@@ -69,16 +69,16 @@ const FuzzyDynamics = () => {
               >
                 FYDY
               </a>
-              ) is a superintelligence lab, currently in stealth. We are making
+              ) is a frontier AI research company, currently in stealth. We are making
               cognitive machines that{" "}
               <span className="underline decoration-muted-foreground/40 underline-offset-4">
                 actively and efficiently learn from experience
               </span>
-              . This is the paradigm shift we need for superintelligence.
+              . We believe that this is the paradigm shift we need for artificial superintelligence (ASI).
             </p>
 
             <p>
-              We believe that safe ASI is the most important technical problem
+              Safe ASI is the most important technical problem
               of our time. It must understand and act on the real world
               autonomously. It must be cooperative enough to preserve human
               freedom or agency. Every leap in human history can be tied to the
@@ -89,7 +89,7 @@ const FuzzyDynamics = () => {
 
             <p>
               LLMs and the era of scaling data have been remarkable, but they
-              are not sufficient. Human data is finite and retrospective.
+              are not sufficient for ASI. Human data is finite and retrospective.
               Language is far from a complete slice of reality. We don't have
               continual learning, efficient world models or a principled way to
               steer agents in open worlds.
