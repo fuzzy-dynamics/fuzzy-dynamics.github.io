@@ -165,7 +165,7 @@ const FuzzyDynamics = () => {
               <details className="group border-b border-border">
                 <summary className="flex items-center justify-between gap-4 cursor-pointer list-none py-5 sm:py-6">
                   <span className="text-lg sm:text-xl font-medium">
-                    Research Scientist
+                    Research
                   </span>
                   <span className="text-2xl leading-none text-muted-foreground transition-transform duration-300 group-open:rotate-45">
                     +
@@ -200,7 +200,7 @@ const FuzzyDynamics = () => {
               <details className="group border-b border-border">
                 <summary className="flex items-center justify-between gap-4 cursor-pointer list-none py-5 sm:py-6">
                   <span className="text-lg sm:text-xl font-medium">
-                    AI Hardware
+                    Hardware
                   </span>
                   <span className="text-2xl leading-none text-muted-foreground transition-transform duration-300 group-open:rotate-45">
                     +
@@ -274,7 +274,7 @@ const FuzzyDynamics = () => {
               <details className="group border-b border-border">
                 <summary className="flex items-center justify-between gap-4 cursor-pointer list-none py-5 sm:py-6">
                   <span className="text-lg sm:text-xl font-medium">
-                    AI Systems
+                    Systems
                   </span>
                   <span className="text-2xl leading-none text-muted-foreground transition-transform duration-300 group-open:rotate-45">
                     +
