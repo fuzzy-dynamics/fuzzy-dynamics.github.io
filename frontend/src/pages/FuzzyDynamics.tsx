@@ -245,8 +245,9 @@ const FuzzyDynamics = () => {
                 </summary>
                 <div className="pb-6 sm:pb-8 font-serif text-base sm:text-lg leading-relaxed text-foreground space-y-4">
                   <p>
-                    If you want to build infrastructure for frontier AI research
-                    and open science, we would love to hear from you.
+                    If you want to work on OpenScientist and help us build the
+                    largest infrastructure for open research, we would love to
+                    hear from you.
                   </p>
                   <p>
                     We want engineers who can operate across the stack
