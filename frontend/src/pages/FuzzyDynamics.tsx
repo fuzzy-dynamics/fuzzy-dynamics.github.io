@@ -69,30 +69,30 @@ const FuzzyDynamics = () => {
               >
                 FYDY
               </a>
-              ) is a frontier AI research company, currently in stealth. We are making
-              cognitive machines that{" "}
+              ) is a frontier AI research company, currently in stealth. We are
+              making cognitive machines that{" "}
               <span className="underline decoration-muted-foreground/40 underline-offset-4">
                 actively and efficiently learn from experience
               </span>
-              . We believe that this is the paradigm shift we need for artificial superintelligence (ASI).
+              . We believe that this is the paradigm shift we need for
+              artificial superintelligence (ASI).
             </p>
 
             <p>
-              Safe ASI is the most important technical problem
-              of our time. It must understand and act on the real world
-              autonomously. It must be cooperative enough to preserve human
-              freedom or agency. Every leap in human history can be tied to the
-              scaling and democratization of a technology. But this one will be
-              the largest shift in how we organize, create and distribute value
-              since agriculture.
+              Safe ASI is the most important technical problem of our time. It
+              must understand and act on the real world autonomously. It must be
+              cooperative enough to preserve human freedom or agency. Every leap
+              in human history can be tied to the scaling and democratization of
+              a technology. But this one will be the largest shift in how we
+              organize, create and distribute value since agriculture.
             </p>
 
             <p>
               LLMs and the era of scaling data have been remarkable, but they
-              are not sufficient for ASI. Human data is finite and retrospective.
-              Language is far from a complete slice of reality. We don't have
-              continual learning, efficient world models or a principled way to
-              steer agents in open worlds.
+              are not sufficient for ASI. Human data is finite and
+              retrospective. Language is far from a complete slice of reality.
+              We don't have continual learning, efficient world models or a
+              principled way to steer agents in open worlds.
             </p>
 
             <p>
@@ -245,15 +245,8 @@ const FuzzyDynamics = () => {
                 </summary>
                 <div className="pb-6 sm:pb-8 font-serif text-base sm:text-lg leading-relaxed text-foreground space-y-4">
                   <p>
-                    If you want to work on{" "}
-                    <Link
-                      to="/openscientist"
-                      className="underline decoration-muted-foreground/40 underline-offset-4 hover:decoration-foreground"
-                    >
-                      <span className="font-serif">OpenScientist</span>
-                    </Link>{" "}
-                    and help us build the largest infrastructure for open
-                    research, we would love to hear from you.
+                    If you want to build infrastructure for frontier AI research
+                    and open science, we would love to hear from you.
                   </p>
                   <p>
                     We want engineers who can operate across the stack
